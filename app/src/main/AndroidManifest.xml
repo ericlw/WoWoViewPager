@@ -17,8 +17,8 @@
         </activity>
         <activity
             android:name=".WoWoTranslationAnimationActivity"
-            android:theme="@style/ShowAppTheme"
-            />
+            android:theme="@style/ShowAppTheme" />
+        <activity android:name=".SetEaseTypeActivity"></activity>
     </application>
 
 </manifest>

@@ -44,8 +44,6 @@ public class WoWoViewPager extends ViewPager {
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-        Log.d("WoWo", position + " " + positionOffset + " " + positionOffsetPixels);
-
         super.onPageScrolled(position, positionOffset, positionOffsetPixels);
 
         for (int i = 0; i < viewAnimations.size(); i++) {

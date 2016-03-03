@@ -19,7 +19,14 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     private ArrayList<WoWoViewPagerFragment> fragments;
     private int fragmentsNumber;
-    private int colorRes;
+
+    /**
+     * fragments' color
+     */
+    private Integer colorRes = null;
+    private Integer color = null;
+    private ArrayList<Integer> colorsRes = null;
+    private ArrayList<Integer> colors = null;
 
     public WoWoViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -32,14 +39,6 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public void setFragmentsNumber(int fragmentsNumber) {
         this.fragmentsNumber = fragmentsNumber;
-    }
-
-    public int getColorRes() {
-        return colorRes;
-    }
-
-    public void setColorRes(int colorRes) {
-        this.colorRes = colorRes;
     }
 
     @Override
@@ -63,7 +62,8 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public static class WoWoViewPagerFragment extends Fragment {
 
-        private int colorRes;
+        private Integer colorRes = null;
+        private Integer color = null;
 
         public WoWoViewPagerFragment() {
             this.colorRes = R.color.white;
@@ -88,5 +88,37 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
         }
+    }
+
+    public int getColorRes() {
+        return colorRes;
+    }
+
+    public void setColorRes(int colorRes) {
+        this.colorRes = colorRes;
+    }
+
+    public Integer getColor() {
+        return color;
+    }
+
+    public void setColor(Integer color) {
+        this.color = color;
+    }
+
+    public ArrayList<Integer> getColorsRes() {
+        return colorsRes;
+    }
+
+    public void setColorsRes(ArrayList<Integer> colorsRes) {
+        this.colorsRes = colorsRes;
+    }
+
+    public ArrayList<Integer> getColors() {
+        return colors;
+    }
+
+    public void setColors(ArrayList<Integer> colors) {
+        this.colors = colors;
     }
 }

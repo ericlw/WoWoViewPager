@@ -2,4 +2,6 @@
     <string name="app_name">WoWo</string>
 
     <string name="wowo_translation_animation">Translation Animation</string>
+
+    <string name="use_same_ease_type_back">Use same ease type when swiping back</string>
 </resources>

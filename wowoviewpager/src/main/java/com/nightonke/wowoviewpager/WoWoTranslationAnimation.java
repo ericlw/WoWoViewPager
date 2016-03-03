@@ -1,5 +1,6 @@
 package com.nightonke.wowoviewpager;
 
+import android.util.Log;
 import android.view.View;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
@@ -137,11 +138,29 @@ public class WoWoTranslationAnimation extends PageAnimation {
 
     private float lastPositionOffset = -1;
 
+    private boolean firstTime = true;
+    private boolean lastTimeIsExceed = false;
+
     @Override
     public void play(View onView, float positionOffset) {
 
-        if (positionOffset < getStartOffset() || positionOffset > getEndOffset()) return;
+        if (positionOffset < getStartOffset()) return;
+        if (positionOffset > getEndOffset()) {
+            // if the positionOffset exceeds the endOffset,
+            // we should set onView to targetPosition
+            // otherwise there may be offsets between targetPosition and actuallyPosition
+            if (lastTimeIsExceed) return;
+            // if the last time we do this, just return
+            onView.setTranslationX(targetX + fromX);
+            onView.setTranslationY(targetY + fromY);
+            onView.requestLayout();
+            lastTimeIsExceed = true;
+            return;
+        }
+        lastTimeIsExceed = false;
 
+        // get the true offset
+        positionOffset = (positionOffset - getStartOffset()) / (getEndOffset() - getStartOffset());
         float movementOffset;
 
         if (lastPositionOffset == -1) {
@@ -162,7 +181,9 @@ public class WoWoTranslationAnimation extends PageAnimation {
         }
         lastPositionOffset = positionOffset;
 
-        if (positionOffset <= 0.0001) {
+        if (firstTime) {
+            firstTime = false;
+
             fromX = onView.getTranslationX();
             fromY = onView.getTranslationY();
 
@@ -172,7 +193,7 @@ public class WoWoTranslationAnimation extends PageAnimation {
             } else {
                 fromX = extremeX;
             }
-            
+
             if (!extremeYIsSet) {
                 extremeYIsSet = true;
                 extremeY = fromY;

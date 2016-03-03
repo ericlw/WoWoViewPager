@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.wowo_translation_animation:
-                startActivity(new Intent(this, WoWoTranslationAnimationActivity.class));
+                startActivity(new Intent(this, SetEaseTypeActivity.class));
                 break;
 
         }
