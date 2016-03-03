@@ -1,8 +1,8 @@
 package com.nightonke.wowoviewpager;
 
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+
+import com.nightonke.wowoviewpager.Eases.EaseType;
 
 /**
  * Created by Weiping on 2016/3/3.

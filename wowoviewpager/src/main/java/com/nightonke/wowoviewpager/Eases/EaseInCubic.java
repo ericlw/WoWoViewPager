@@ -1,4 +1,4 @@
-package com.nightonke.wowoviewpager;
+package com.nightonke.wowoviewpager.Eases;
 
 /**
  * Created by Weiping on 2016/3/3.

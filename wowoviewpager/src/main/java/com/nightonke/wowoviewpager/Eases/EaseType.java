@@ -1,4 +1,4 @@
-package com.nightonke.wowoviewpager;
+package com.nightonke.wowoviewpager.Eases;
 
 /**
  * Created by Weiping on 2016/3/3.
@@ -33,6 +33,18 @@ public enum EaseType {
     EaseInCirc(EaseInCirc.class),
     EaseOutCirc(EaseOutCirc.class),
     EaseInOutCirc(EaseInOutCirc.class),
+
+    EaseInBack(EaseInBack.class),
+    EaseOutBack(EaseOutBack.class),
+    EaseInOutBack(EaseInOutBack.class),
+
+    EaseInElastic(EaseInElastic.class),
+    EaseOutElastic(EaseOutElastic.class),
+    EaseInOutElastic(EaseInOutElastic.class),
+
+    EaseInBounce(EaseInBounce.class),
+    EaseOutBounce(EaseOutBounce.class),
+    EaseInOutBounce(EaseInOutBounce.class),
 
     Linear(Linear.class);
 

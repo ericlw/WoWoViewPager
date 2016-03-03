@@ -1,4 +1,4 @@
-package com.nightonke.wowoviewpager;
+package com.nightonke.wowoviewpager.Eases;
 
 import android.graphics.PointF;
 
