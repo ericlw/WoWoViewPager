@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
+import com.nightonke.wowoviewpager.WoWoScaleAnimation;
+
 public class SetEaseTypeActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener{
 
@@ -29,9 +31,18 @@ public class SetEaseTypeActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = null;
+        switch (getIntent().getStringExtra("AnimationType")) {
+            case "WoWoTranslationAnimation":
+                intent = new Intent(this, WoWoTranslationAnimationActivity.class);
+                break;
+            case "WoWoScaleAnimation":
+                intent = new Intent(this, WoWoScaleAnimationActivity.class);
+                break;
+            default: return;
+        }
         switch (parent.getId()) {
             case R.id.listview:
-                Intent intent = new Intent(this, WoWoTranslationAnimationActivity.class);
                 intent.putExtra("easeType", position);
                 intent.putExtra("useSameEaseTypeBack", checkBox.isChecked());
                 startActivity(intent);

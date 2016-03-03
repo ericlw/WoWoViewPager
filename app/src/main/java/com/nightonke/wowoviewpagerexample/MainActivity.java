@@ -13,15 +13,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.wowo_translation_animation).setOnClickListener(this);
+        findViewById(R.id.wowo_scale_animation).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent(this, SetEaseTypeActivity.class);
         switch (v.getId()) {
             case R.id.wowo_translation_animation:
-                startActivity(new Intent(this, SetEaseTypeActivity.class));
+                intent.putExtra("AnimationType", "WoWoTranslationAnimation");
                 break;
-
+            case R.id.wowo_scale_animation:
+                intent.putExtra("AnimationType", "WoWoScaleAnimation");
+                break;
         }
+        startActivity(intent);
     }
 }

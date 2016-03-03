@@ -145,7 +145,7 @@ public class WoWoTranslationAnimation extends PageAnimation {
     public void play(View onView, float positionOffset) {
 
         if (positionOffset < getStartOffset()) return;
-        if (positionOffset > getEndOffset()) {
+        if (positionOffset >= getEndOffset()) {
             // if the positionOffset exceeds the endOffset,
             // we should set onView to targetPosition
             // otherwise there may be offsets between targetPosition and actuallyPosition
@@ -181,9 +181,7 @@ public class WoWoTranslationAnimation extends PageAnimation {
         }
         lastPositionOffset = positionOffset;
 
-        if (firstTime) {
-            firstTime = false;
-
+        if (positionOffset <= 0) {
             fromX = onView.getTranslationX();
             fromY = onView.getTranslationY();
 

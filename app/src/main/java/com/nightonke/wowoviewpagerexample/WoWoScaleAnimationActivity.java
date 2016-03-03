@@ -9,16 +9,15 @@ import android.widget.TextView;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
 import com.nightonke.wowoviewpager.ViewAnimation;
-import com.nightonke.wowoviewpager.WoWoTranslationAnimation;
-import com.nightonke.wowoviewpager.WoWoUtil;
+import com.nightonke.wowoviewpager.WoWoScaleAnimation;
 import com.nightonke.wowoviewpager.WoWoViewPager;
 import com.nightonke.wowoviewpager.WoWoViewPagerAdapter;
 
-public class WoWoTranslationAnimationActivity extends AppCompatActivity {
+public class WoWoScaleAnimationActivity extends AppCompatActivity {
 
     private WoWoViewPager wowo;
     private WoWoViewPagerAdapter adapter;
-    
+
     private EaseType easeType = EaseType.EaseInCubic;
     private boolean useSameEaseTypeBack = true;
 
@@ -29,12 +28,9 @@ public class WoWoTranslationAnimationActivity extends AppCompatActivity {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_wowo_translation_animation);
+        setContentView(R.layout.activity_wowo_scale_animation);
 
         init();
-
-        int screenW = WoWoUtil.getScreenWidth(this);
-        int screenH = WoWoUtil.getScreenHeight(this);
 
         wowo = (WoWoViewPager)findViewById(R.id.wowo_viewpager);
         adapter = new WoWoViewPagerAdapter(getSupportFragmentManager());
@@ -44,40 +40,40 @@ public class WoWoTranslationAnimationActivity extends AppCompatActivity {
         setPageTV(wowo);
 
         ViewAnimation animation = new ViewAnimation(findViewById(R.id.android));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(
+        animation.addPageAnimaition(new WoWoScaleAnimation(
                 0, 0f, 1f,
-                -screenW / 2 + WoWoUtil.dp2px(40, this),
-                -screenH / 2 + WoWoUtil.dp2px(40, this),
+                0.5f,
+                0.5f,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(
+        animation.addPageAnimaition(new WoWoScaleAnimation(
                 1, 0f, 1f,
-                screenW - WoWoUtil.dp2px(80, this),
-                screenH - WoWoUtil.dp2px(80, this),
+                4f,
+                4f,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(
+        animation.addPageAnimaition(new WoWoScaleAnimation(
                 2, 0f, 0.5f,
-                0,
-                -screenH / 2 + WoWoUtil.dp2px(40, this),
+                2f,
+                2f,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(
+        animation.addPageAnimaition(new WoWoScaleAnimation(
                 2, 0.5f, 1f,
-                -screenW + WoWoUtil.dp2px(80, this),
-                0,
+                0.5f,
+                0.5f,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(
+        animation.addPageAnimaition(new WoWoScaleAnimation(
                 3, 0f, 0.5f,
-                screenW / 2 - WoWoUtil.dp2px(40, this),
-                -screenH / 2 + WoWoUtil.dp2px(40, this),
+                2f,
+                1f,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(
+        animation.addPageAnimaition(new WoWoScaleAnimation(
                 3, 0.5f, 1f,
-                0,
-                screenH / 2 - WoWoUtil.dp2px(40, this),
+                1f,
+                2f,
                 easeType,
                 useSameEaseTypeBack));
         wowo.addAnimation(animation);
