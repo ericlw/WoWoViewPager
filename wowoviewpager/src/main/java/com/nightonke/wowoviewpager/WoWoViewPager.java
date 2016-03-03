@@ -3,6 +3,7 @@ package com.nightonke.wowoviewpager;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,9 @@ public class WoWoViewPager extends ViewPager {
      */
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        Log.d("WoWo", position + " " + positionOffset + " " + positionOffsetPixels);
+
         super.onPageScrolled(position, positionOffset, positionOffsetPixels);
 
         for (int i = 0; i < viewAnimations.size(); i++) {
@@ -49,4 +53,6 @@ public class WoWoViewPager extends ViewPager {
         }
 
     }
+
+    private int lastPosition = -1;
 }

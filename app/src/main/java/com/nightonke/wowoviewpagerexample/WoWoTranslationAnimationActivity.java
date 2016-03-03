@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.nightonke.wowoviewpager.EaseType;
 import com.nightonke.wowoviewpager.ViewAnimation;
 import com.nightonke.wowoviewpager.WoWoTranslationAnimation;
 import com.nightonke.wowoviewpager.WoWoUtil;
@@ -38,8 +39,18 @@ public class WoWoTranslationAnimationActivity extends AppCompatActivity {
         setPageTV(wowo);
 
         ViewAnimation animation = new ViewAnimation(findViewById(R.id.android));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(0, 0, 1, -screenW / 2, -screenH / 2));
-        animation.addPageAnimaition(new WoWoTranslationAnimation(1, 0, 1, screenW - WoWoUtil.dp2px(80, this), screenH - WoWoUtil.dp2px(80, this)));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0, 1,
+                -screenW / 2 + WoWoUtil.dp2px(40, this),
+                -screenH / 2 + WoWoUtil.dp2px(40, this),
+                EaseType.EaseOutExpo,
+                true));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                screenW - WoWoUtil.dp2px(80, this),
+                screenH - WoWoUtil.dp2px(80, this),
+                EaseType.EaseInOutCirc,
+                true));
         wowo.addAnimation(animation);
     }
 
