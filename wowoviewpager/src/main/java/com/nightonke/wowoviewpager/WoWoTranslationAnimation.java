@@ -181,7 +181,9 @@ public class WoWoTranslationAnimation extends PageAnimation {
         }
         lastPositionOffset = positionOffset;
 
-        if (positionOffset <= 0) {
+        if (firstTime) {
+            firstTime = false;
+
             fromX = onView.getTranslationX();
             fromY = onView.getTranslationY();
 

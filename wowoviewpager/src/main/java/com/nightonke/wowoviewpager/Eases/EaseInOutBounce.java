@@ -17,14 +17,14 @@ public class EaseInOutBounce extends CubicBezier {
         if (t < d / 2)
             return easeInBounce(t * 2, 0, c, d) * .5f + b;
         else
-            return easeOutBource(t * 2 - d, 0, c, d) * .5f + c * .5f + b;
+            return easeOutBounce(t * 2 - d, 0, c, d) * .5f + c * .5f + b;
     }
 
     private float easeInBounce(float t, float b, float c, float d) {
-        return c - easeOutBource(d - t, 0, c, d) + b;
+        return c - easeOutBounce(d - t, 0, c, d) + b;
     }
 
-    private float easeOutBource(float t, float b, float c, float d) {
+    private float easeOutBounce(float t, float b, float c, float d) {
         if ((t/=d) < (1/2.75f)) {
             return c*(7.5625f*t*t) + b;
         } else if (t < (2/2.75f)) {

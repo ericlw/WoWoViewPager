@@ -153,6 +153,7 @@ public class WoWoScaleAnimation extends PageAnimation {
         if (positionOffset < getStartOffset()) {
             return;
         }
+
         if (positionOffset >= getEndOffset()) {
             // if the positionOffset exceeds the endOffset,
             // we should set onView to targetSize
@@ -193,10 +194,8 @@ public class WoWoScaleAnimation extends PageAnimation {
         if (firstTime) {
             firstTime = false;
 
-            fromWidth = onView.getMeasuredWidth();
-            fromHeight = onView.getMeasuredHeight();
-
-            Log.d("WoWo", "WH set: " + fromWidth + " " + fromHeight);
+            fromWidth = onView.getLayoutParams().width;
+            fromHeight = onView.getLayoutParams().height;
 
             if (!extremeHeightIsSet) {
                 extremeHeightIsSet = true;
@@ -215,12 +214,10 @@ public class WoWoScaleAnimation extends PageAnimation {
             return;
         }
 
-        Log.d("WoWo", getPage() + " " + (fromWidth + (targetWidth - 1) * fromWidth * movementOffset) + " " + (fromHeight + (targetHeight - 1) * fromHeight * movementOffset));
         ViewGroup.LayoutParams param = onView.getLayoutParams();
         param.width = (int)(fromWidth + (targetWidth - 1) * fromWidth * movementOffset);
         param.height = (int)(fromHeight + (targetHeight - 1) * fromHeight * movementOffset);
         onView.setLayoutParams(param);
-//        onView.setLayoutParams(new RelativeLayout.LayoutParams((int)(fromWidth * targetWidth * movementOffset), (int)(fromHeight * targetHeight * movementOffset)));
 
     }
 }
