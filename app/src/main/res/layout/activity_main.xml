@@ -29,6 +29,13 @@
             android:text="@string/wowo_scale_animation"
             />
 
+        <Button
+            android:id="@+id/wowo_alpha_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wowo_alpha_animation"
+            />
+
     </LinearLayout>
 
 </ScrollView>

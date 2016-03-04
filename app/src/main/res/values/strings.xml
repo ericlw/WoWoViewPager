@@ -3,6 +3,7 @@
 
     <string name="wowo_translation_animation">Translation Animation</string>
     <string name="wowo_scale_animation">Scale Animation</string>
+    <string name="wowo_alpha_animation">Alpha Animation</string>
 
     <string name="use_same_ease_type_back">Use same ease type when swiping back</string>
 </resources>

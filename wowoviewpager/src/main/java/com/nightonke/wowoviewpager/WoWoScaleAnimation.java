@@ -3,8 +3,6 @@ package com.nightonke.wowoviewpager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
 
@@ -20,111 +18,111 @@ public class WoWoScaleAnimation extends PageAnimation {
     private EaseType easeType;
     private boolean useSameEaseTypeBack = true;
 
-    private float targetWidth;
-    private float targetHeight;
+    private float targetScaleX;
+    private float targetScaleY;
     private float fromWidth;
     private float fromHeight;
 
-    public WoWoScaleAnimation(int page, float targetWidth, float targetHeight) {
+    public WoWoScaleAnimation(int page, float targetScaleX, float targetScaleY) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = true;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
 
-    public WoWoScaleAnimation(int page, float targetWidth, float targetHeight, EaseType easeType) {
+    public WoWoScaleAnimation(int page, float targetScaleX, float targetScaleY, EaseType easeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = true;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
 
-    public WoWoScaleAnimation(int page, float targetWidth, float targetHeight, boolean useSameEaseTypeBack) {
+    public WoWoScaleAnimation(int page, float targetScaleX, float targetScaleY, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
 
-    public WoWoScaleAnimation(int page, float targetWidth, float targetHeight, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoScaleAnimation(int page, float targetScaleX, float targetScaleY, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
 
-    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetWidth, float targetHeight) {
+    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetScaleX, float targetScaleY) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = true;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
 
-    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetWidth, float targetHeight, EaseType easeType) {
+    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetScaleX, float targetScaleY, EaseType easeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = true;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
 
-    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetWidth, float targetHeight, boolean useSameEaseTypeBack) {
+    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetScaleX, float targetScaleY, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
 
-    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetWidth, float targetHeight, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetScaleX, float targetScaleY, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetWidth = targetWidth;
-        this.targetHeight = targetHeight;
+        this.targetScaleX = targetScaleX;
+        this.targetScaleY = targetScaleY;
         fromWidth = -1;
         fromHeight = -1;
     }
@@ -143,12 +141,9 @@ public class WoWoScaleAnimation extends PageAnimation {
 
     private boolean firstTime = true;
     private boolean lastTimeIsExceed = false;
-    private boolean lastTimeIsLess = false;
 
     @Override
     public void play(View onView, float positionOffset) {
-
-        Log.d("WoWo", getPage() + " " + positionOffset);
 
         if (positionOffset < getStartOffset()) {
             return;
@@ -161,8 +156,8 @@ public class WoWoScaleAnimation extends PageAnimation {
             if (lastTimeIsExceed) return;
             // if the last time we do this, just return
             ViewGroup.LayoutParams param = onView.getLayoutParams();
-            param.width = (int)(fromWidth * targetWidth);
-            param.height = (int)(fromHeight * targetHeight);
+            param.width = (int)(fromWidth * targetScaleX);
+            param.height = (int)(fromHeight * targetScaleY);
             onView.requestLayout();
             lastTimeIsExceed = true;
             return;
@@ -215,8 +210,8 @@ public class WoWoScaleAnimation extends PageAnimation {
         }
 
         ViewGroup.LayoutParams param = onView.getLayoutParams();
-        param.width = (int)(fromWidth + (targetWidth - 1) * fromWidth * movementOffset);
-        param.height = (int)(fromHeight + (targetHeight - 1) * fromHeight * movementOffset);
+        param.width = (int)(fromWidth + (targetScaleX - 1) * fromWidth * movementOffset);
+        param.height = (int)(fromHeight + (targetScaleY - 1) * fromHeight * movementOffset);
         onView.setLayoutParams(param);
 
     }

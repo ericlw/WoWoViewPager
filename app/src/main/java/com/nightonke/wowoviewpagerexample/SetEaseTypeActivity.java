@@ -39,6 +39,9 @@ public class SetEaseTypeActivity extends AppCompatActivity
             case "WoWoScaleAnimation":
                 intent = new Intent(this, WoWoScaleAnimationActivity.class);
                 break;
+            case "WoWoAlphaAnimation":
+                intent = new Intent(this, WoWoAlphaAnimationActivity.class);
+                break;
             default: return;
         }
         switch (parent.getId()) {

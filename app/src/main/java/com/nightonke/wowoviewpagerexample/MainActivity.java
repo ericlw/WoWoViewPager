@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.wowo_translation_animation).setOnClickListener(this);
         findViewById(R.id.wowo_scale_animation).setOnClickListener(this);
+        findViewById(R.id.wowo_alpha_animation).setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.wowo_scale_animation:
                 intent.putExtra("AnimationType", "WoWoScaleAnimation");
+                break;
+            case R.id.wowo_alpha_animation:
+                intent.putExtra("AnimationType", "WoWoAlphaAnimation");
                 break;
         }
         startActivity(intent);

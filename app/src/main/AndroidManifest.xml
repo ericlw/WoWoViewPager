@@ -21,7 +21,10 @@
         <activity android:name=".SetEaseTypeActivity" />
         <activity
             android:name=".WoWoScaleAnimationActivity"
-            android:theme="@style/ShowAppTheme"/>
+            android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name=".WoWoAlphaAnimationActivity"
+            android:theme="@style/ShowAppTheme" />
     </application>
 
 </manifest>
