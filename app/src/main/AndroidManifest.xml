@@ -31,6 +31,9 @@
         <activity
             android:name=".WoWoTextViewColorAnimationActivity"
             android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name=".WoWoBackgroundColorAnimationActivity"
+            android:theme="@style/ShowAppTheme" />
     </application>
 
 </manifest>
