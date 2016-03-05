@@ -43,6 +43,13 @@
             android:text="@string/wowo_drawable_color_animation"
             />
 
+        <Button
+            android:id="@+id/wowo_textview_color_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wowo_textview_color_animation"
+            />
+
     </LinearLayout>
 
 </ScrollView>

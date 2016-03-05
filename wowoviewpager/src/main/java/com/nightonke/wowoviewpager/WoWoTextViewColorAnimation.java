@@ -3,6 +3,7 @@ package com.nightonke.wowoviewpager;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.View;
+import android.widget.TextView;
 
 import com.nightonke.wowoviewpager.Color.ColorChangeType;
 import com.nightonke.wowoviewpager.Eases.EaseType;
@@ -12,17 +13,9 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
  */
 
 /**
- * animation to change the color of drawable of view
- * notice that the background of the view must be:
- *
- * <?xml version="1.0" encoding="utf-8"?>
- *     <shape xmlns:android="http://schemas.android.com/apk/res/android"
- *         android:shape="oval"  >
- *     <solid android:color="@color/red"/>
- * </shape>
- *
+ * animation to change the color of drawable of text
  */
-public class WoWoShapeColorAnimation extends PageAnimation {
+public class WoWoTextViewColorAnimation extends PageAnimation {
 
     private EaseType easeType;
     private boolean useSameEaseTypeBack = true;
@@ -31,7 +24,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
 
     private int targetColor;
     private int fromColor;
-    
+
     private int targetA = -1;
     private int targetR = -1;
     private int targetG = -1;
@@ -43,7 +36,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
     private int fromB = -1;
     private float[] fromHSV = new float[3];
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType) {
+    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -57,7 +50,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
+    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -71,7 +64,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
+    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -85,7 +78,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -99,7 +92,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType) {
+    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -113,7 +106,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
+    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -127,7 +120,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
+    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -141,7 +134,7 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -172,7 +165,9 @@ public class WoWoShapeColorAnimation extends PageAnimation {
             // otherwise there may be offsets between target color and actually color
             if (lastTimeIsExceed) return;
             // if the last time we do this, just return
-            ((GradientDrawable)onView.getBackground()).setColor(targetColor);
+            if (onView instanceof TextView) {
+                ((TextView) onView).setTextColor(targetColor);
+            }
             lastTimeIsExceed = true;
             return;
         }
@@ -201,19 +196,23 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         lastPositionOffset = positionOffset;
 
         if (colorChangeType == ColorChangeType.RGB) {
-            ((GradientDrawable)onView.getBackground()).setColor(
-                    Color.argb(
-                            fromA + (int)((targetA - fromA) * movementOffset),
-                            fromR + (int)((targetR - fromR) * movementOffset),
-                            fromG + (int)((targetG - fromG) * movementOffset),
-                            fromB + (int)((targetB - fromB) * movementOffset))
-            );
+            if (onView instanceof TextView) {
+                ((TextView) onView).setTextColor(
+                        Color.argb(
+                                fromA + (int)((targetA - fromA) * movementOffset),
+                                fromR + (int)((targetR - fromR) * movementOffset),
+                                fromG + (int)((targetG - fromG) * movementOffset),
+                                fromB + (int)((targetB - fromB) * movementOffset))
+                );
+            }
         } else {
-            ((GradientDrawable)onView.getBackground()).setColor(Color.HSVToColor(new float[]{
-                fromHSV[0] + (targetHSV[0] - fromHSV[0]) * movementOffset,
-                fromHSV[1] + (targetHSV[1] - fromHSV[1]) * movementOffset,
-                fromHSV[2] + (targetHSV[2] - fromHSV[2]) * movementOffset
-            }));
+            if (onView instanceof TextView) {
+                ((TextView) onView).setTextColor(Color.HSVToColor(new float[]{
+                        fromHSV[0] + (targetHSV[0] - fromHSV[0]) * movementOffset,
+                        fromHSV[1] + (targetHSV[1] - fromHSV[1]) * movementOffset,
+                        fromHSV[2] + (targetHSV[2] - fromHSV[2]) * movementOffset
+                }));
+            }
         }
     }
 
