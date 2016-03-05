@@ -50,7 +50,7 @@ public enum EaseType {
 
     private Class easingType;
 
-    private EaseType(Class easingType) {
+    EaseType(Class easingType) {
         this.easingType = easingType;
     }
 

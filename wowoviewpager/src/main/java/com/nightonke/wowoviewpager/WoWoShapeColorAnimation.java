@@ -1,11 +1,10 @@
 package com.nightonke.wowoviewpager;
 
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
 import android.view.View;
 
+import com.nightonke.wowoviewpager.Color.ColorChangeType;
 import com.nightonke.wowoviewpager.Eases.EaseType;
 
 /**
@@ -20,10 +19,23 @@ public class WoWoShapeColorAnimation extends PageAnimation {
     private EaseType easeType;
     private boolean useSameEaseTypeBack = true;
 
+    private ColorChangeType colorChangeType;
+
     private int targetColor;
     private int fromColor;
+    
+    private int targetA = -1;
+    private int targetR = -1;
+    private int targetG = -1;
+    private int targetB = -1;
+    private float[] targetHSV = new float[3];
+    private int fromA = -1;
+    private int fromR = -1;
+    private int fromG = -1;
+    private int fromB = -1;
+    private float[] fromHSV = new float[3];
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -32,9 +44,12 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = true;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, EaseType easeType) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -43,9 +58,12 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = true;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -54,9 +72,12 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = useSameEaseTypeBack;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -65,9 +86,12 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = useSameEaseTypeBack;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -76,9 +100,12 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = true;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, EaseType easeType) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -87,9 +114,12 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = true;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -98,9 +128,12 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = useSameEaseTypeBack;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
-    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -109,11 +142,13 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         this.useSameEaseTypeBack = useSameEaseTypeBack;
         this.fromColor = fromColor;
         this.targetColor = targetColor;
+        setARGBandHSV();
+
+        this.colorChangeType = colorChangeType;
     }
 
     private float lastPositionOffset = -1;
 
-    private boolean firstTime = true;
     private boolean lastTimeIsExceed = false;
 
     @Override
@@ -157,12 +192,34 @@ public class WoWoShapeColorAnimation extends PageAnimation {
         }
         lastPositionOffset = positionOffset;
 
-        int nowColor = Color.argb(
-                Color.alpha(fromColor) + (int)((Color.alpha(targetColor) - Color.alpha(fromColor)) * movementOffset),
-                Color.red(fromColor) + (int)((Color.red(targetColor) - Color.red(fromColor)) * movementOffset),
-                Color.green(fromColor) + (int)((Color.green(targetColor) - Color.green(fromColor)) * movementOffset),
-                Color.blue(fromColor) + (int)((Color.blue(targetColor) - Color.blue(fromColor)) * movementOffset));
-        ((GradientDrawable)onView.getBackground()).setColor(nowColor);
+        if (colorChangeType == ColorChangeType.RGB) {
+            ((GradientDrawable)onView.getBackground()).setColor(
+                    Color.argb(
+                            fromA + (int)((targetA - fromA) * movementOffset),
+                            fromR + (int)((targetR - fromR) * movementOffset),
+                            fromG + (int)((targetG - fromG) * movementOffset),
+                            fromB + (int)((targetB - fromB) * movementOffset))
+            );
+        } else {
+            ((GradientDrawable)onView.getBackground()).setColor(Color.HSVToColor(new float[]{
+                fromHSV[0] + (targetHSV[0] - fromHSV[0]) * movementOffset,
+                fromHSV[1] + (targetHSV[1] - fromHSV[1]) * movementOffset,
+                fromHSV[2] + (targetHSV[2] - fromHSV[2]) * movementOffset
+            }));
+        }
+    }
 
+    private void setARGBandHSV() {
+        targetA = Color.alpha(targetColor);
+        targetR = Color.red(targetColor);
+        targetG = Color.green(targetColor);
+        targetB = Color.blue(targetColor);
+        Color.colorToHSV(targetColor, targetHSV);
+        
+        fromA = Color.alpha(fromColor);
+        fromR = Color.red(fromColor);
+        fromG = Color.green(fromColor);
+        fromB = Color.blue(fromColor);
+        Color.RGBToHSV(fromR, fromG, fromB, fromHSV);
     }
 }

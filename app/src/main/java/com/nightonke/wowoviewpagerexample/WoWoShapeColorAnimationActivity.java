@@ -4,10 +4,12 @@ import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.nightonke.wowoviewpager.Color.ColorChangeType;
 import com.nightonke.wowoviewpager.Eases.EaseType;
 import com.nightonke.wowoviewpager.ViewAnimation;
 import com.nightonke.wowoviewpager.WoWoShapeColorAnimation;
@@ -40,41 +42,38 @@ public class WoWoShapeColorAnimationActivity extends AppCompatActivity {
         wowo.setAdapter(adapter);
         setPageTV(wowo);
 
-        ViewAnimation animation = new ViewAnimation(findViewById(R.id.android));
+        setAnimation(findViewById(R.id.test1), ColorChangeType.RGB);
+        setAnimation(findViewById(R.id.test2), ColorChangeType.HSV);
+    }
+
+    private void setAnimation(View view, ColorChangeType colorChangeType) {
+        ViewAnimation animation = new ViewAnimation(view);
         animation.addPageAnimaition(new WoWoShapeColorAnimation(
                 0, 0f, 1f,
-                Color.parseColor("#84D767"),
-                Color.parseColor("#000000"),
+                Color.parseColor("#ff0000"),
+                Color.parseColor("#00ff00"),
+                colorChangeType,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoShapeColorAnimation(
                 1, 0f, 1f,
-                Color.parseColor("#000000"),
-                Color.parseColor("#ff0000"),
+                Color.parseColor("#00ff00"),
+                Color.parseColor("#0000ff"),
+                colorChangeType,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoShapeColorAnimation(
                 2, 0f, 0.5f,
-                Color.parseColor("#ff0000"),
-                Color.parseColor("#00ff00"),
-                easeType,
-                useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoShapeColorAnimation(
-                2, 0.5f, 1f,
-                Color.parseColor("#00ff00"),
                 Color.parseColor("#0000ff"),
+                Color.parseColor("#ff0000"),
+                colorChangeType,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoShapeColorAnimation(
                 3, 0f, 0.5f,
-                Color.parseColor("#0000ff"),
-                Color.parseColor("#ff00ff"),
-                easeType,
-                useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoShapeColorAnimation(
-                3, 0.5f, 1f,
-                Color.parseColor("#ff00ff"),
-                Color.parseColor("#f0f0ff"),
+                Color.parseColor("#ff0000"),
+                Color.parseColor("#000000"),
+                colorChangeType,
                 easeType,
                 useSameEaseTypeBack));
         wowo.addAnimation(animation);
