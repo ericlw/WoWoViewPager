@@ -227,6 +227,6 @@ public class WoWoTextViewColorAnimation extends PageAnimation {
         fromR = Color.red(fromColor);
         fromG = Color.green(fromColor);
         fromB = Color.blue(fromColor);
-        Color.RGBToHSV(fromR, fromG, fromB, fromHSV);
+        Color.colorToHSV(fromColor, fromHSV);
     }
 }

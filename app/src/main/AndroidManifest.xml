@@ -34,6 +34,10 @@
         <activity
             android:name=".WoWoBackgroundColorAnimationActivity"
             android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name=".WoWoLayerListColorAnimationActivity"
+            android:theme="@style/ShowAppTheme"
+            />
     </application>
 
 </manifest>
