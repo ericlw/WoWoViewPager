@@ -1,7 +1,10 @@
 package com.nightonke.wowoviewpager;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
 
@@ -10,110 +13,103 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
  */
 
 /**
- * animation to change the alpha of view
+ * animation to change the color of drawable of view
  */
-public class WoWoAlphaAnimation extends PageAnimation {
+public class WoWoShapeColorAnimation extends PageAnimation {
 
     private EaseType easeType;
     private boolean useSameEaseTypeBack = true;
 
-    private float targetAlpha;
-    private float fromAlpha;
+    private int targetColor;
+    private int fromColor;
 
-    public WoWoAlphaAnimation(int page, float targetAlpha) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
 
-    public WoWoAlphaAnimation(int page, float targetAlpha, EaseType easeType) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, EaseType easeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
 
-    public WoWoAlphaAnimation(int page, float targetAlpha, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
 
-    public WoWoAlphaAnimation(int page, float targetAlpha, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, int fromColor, int targetColor, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
 
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
 
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha, EaseType easeType) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, EaseType easeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
 
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = EaseType.Linear;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
 
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoShapeColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
 
         this.easeType = easeType;
         this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
+        this.fromColor = fromColor;
+        this.targetColor = targetColor;
     }
-
-    /**
-     * every pageAnimation has extreme alpha
-     * we have to reset the extreme to prevent the offset of alpha
-     */
-    private float extremeAlpha = -1;
-    private boolean extremeAlphaIsSet = false;
 
     private float lastPositionOffset = -1;
 
@@ -129,11 +125,11 @@ public class WoWoAlphaAnimation extends PageAnimation {
 
         if (positionOffset >= getEndOffset()) {
             // if the positionOffset exceeds the endOffset,
-            // we should set onView to target alpha
-            // otherwise there may be offsets between target alpha and actually alpha
+            // we should set onView to target color
+            // otherwise there may be offsets between target color and actually color
             if (lastTimeIsExceed) return;
             // if the last time we do this, just return
-            onView.setAlpha(targetAlpha);
+            ((GradientDrawable)onView.getBackground()).setColor(targetColor);
             lastTimeIsExceed = true;
             return;
         }
@@ -161,22 +157,12 @@ public class WoWoAlphaAnimation extends PageAnimation {
         }
         lastPositionOffset = positionOffset;
 
-        if (firstTime) {
-            firstTime = false;
-
-            fromAlpha = onView.getAlpha();
-
-            if (!extremeAlphaIsSet) {
-                extremeAlphaIsSet = true;
-                extremeAlpha = fromAlpha;
-            } else {
-                fromAlpha = extremeAlpha;
-            }
-
-            return;
-        }
-
-        onView.setAlpha(fromAlpha + (targetAlpha - fromAlpha) * movementOffset);
+        int nowColor = Color.argb(
+                Color.alpha(fromColor) + (int)((Color.alpha(targetColor) - Color.alpha(fromColor)) * movementOffset),
+                Color.red(fromColor) + (int)((Color.red(targetColor) - Color.red(fromColor)) * movementOffset),
+                Color.green(fromColor) + (int)((Color.green(targetColor) - Color.green(fromColor)) * movementOffset),
+                Color.blue(fromColor) + (int)((Color.blue(targetColor) - Color.blue(fromColor)) * movementOffset));
+        ((GradientDrawable)onView.getBackground()).setColor(nowColor);
 
     }
 }

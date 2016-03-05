@@ -25,6 +25,9 @@
         <activity
             android:name=".WoWoAlphaAnimationActivity"
             android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name=".WoWoShapeColorAnimationActivity"
+            android:theme="@style/ShowAppTheme"/>
     </application>
 
 </manifest>
