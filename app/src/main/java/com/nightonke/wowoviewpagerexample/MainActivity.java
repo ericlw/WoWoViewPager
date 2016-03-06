@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.wowo_layer_list_color_animation).setOnClickListener(this);
         findViewById(R.id.wowo_state_list_color_animation).setOnClickListener(this);
         findViewById(R.id.wowo_rotation_animation).setOnClickListener(this);
+        findViewById(R.id.wowo_path_animation).setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.wowo_rotation_animation:
                 intent.putExtra("AnimationType", "WoWoRotationAnimation");
+                break;
+            case R.id.wowo_path_animation:
+                intent.putExtra("AnimationType", "WoWoPathAnimation");
                 break;
         }
         startActivity(intent);

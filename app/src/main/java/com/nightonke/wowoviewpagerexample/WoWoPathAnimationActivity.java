@@ -1,5 +1,6 @@
 package com.nightonke.wowoviewpagerexample;
 
+import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +11,13 @@ import android.widget.TextView;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
 import com.nightonke.wowoviewpager.ViewAnimation;
+import com.nightonke.wowoviewpager.WoWoPathAnimation;
+import com.nightonke.wowoviewpager.WoWoPathView;
 import com.nightonke.wowoviewpager.WoWoRotationAnimation;
 import com.nightonke.wowoviewpager.WoWoViewPager;
 import com.nightonke.wowoviewpager.WoWoViewPagerAdapter;
 
-public class WoWoRotationAnimationActivity extends AppCompatActivity {
+public class WoWoPathAnimationActivity extends AppCompatActivity {
 
     private WoWoViewPager wowo;
     private WoWoViewPagerAdapter adapter;
@@ -29,7 +32,7 @@ public class WoWoRotationAnimationActivity extends AppCompatActivity {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_wowo_rotation_animation);
+        setContentView(R.layout.activity_wowo_path_animation);
 
         init();
 
@@ -44,50 +47,20 @@ public class WoWoRotationAnimationActivity extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        TextView textView1 = (TextView)findViewById(R.id.test1);
-        TextView textView2 = (TextView)findViewById(R.id.test2);
-        setAnimation(
-                textView1,
-                textView1.getPivotX(),
-                textView1.getPivotY());
-        setAnimation(
-                textView2,
-                textView2.getPivotX() - 50,
-                textView2.getPivotY() - 50);
-    }
-
-    private void setAnimation(View view, float pivotX, float pivotY) {
-        ViewAnimation animation = new ViewAnimation(view);
-        animation.addPageAnimaition(new WoWoRotationAnimation(
+        WoWoPathView pathView = (WoWoPathView)findViewById(R.id.pathview);
+        Path p = new Path();
+        p.moveTo(0, 0);
+        p.lineTo(pathView.getWidth(), 0);
+        p.lineTo(pathView.getWidth(), pathView.getHeight());
+        p.lineTo(0, pathView.getHeight());
+        p.lineTo(0, 0);
+        p.lineTo(pathView.getWidth(), pathView.getHeight());
+        p.lineTo(pathView.getWidth(), 0);
+        p.lineTo(0, pathView.getHeight());
+        pathView.setPath(p);
+        ViewAnimation animation = new ViewAnimation(pathView);
+        animation.addPageAnimaition(new WoWoPathAnimation(
                 0, 0f, 1f,
-                pivotX, pivotY,
-                0,
-                0,
-                180,
-                easeType,
-                useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoRotationAnimation(
-                1, 0f, 1f,
-                pivotX, pivotY,
-                0,
-                60,
-                180,
-                easeType,
-                useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoRotationAnimation(
-                2, 0f, 1f,
-                pivotX, pivotY,
-                -45,
-                60,
-                180,
-                easeType,
-                useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoRotationAnimation(
-                3, 0f, 1f,
-                pivotX, pivotY,
-                0,
-                0,
-                0,
                 easeType,
                 useSameEaseTypeBack));
         wowo.addAnimation(animation);

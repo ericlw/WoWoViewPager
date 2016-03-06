@@ -12,6 +12,7 @@
     <string name="wowo_layer_list_color_animation">Layer-List Color Animation</string>
     <string name="wowo_state_list_color_animation">State-List Color Animation</string>
     <string name="wowo_rotation_animation">Rotation Animation</string>
+    <string name="wowo_path_animation">Path Animation</string>
 
     <string name="use_same_ease_type_back">Use same ease type when swiping back</string>
 </resources>

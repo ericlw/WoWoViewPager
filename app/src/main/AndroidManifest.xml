@@ -43,6 +43,9 @@
         <activity
             android:name=".WoWoRotationAnimationActivity"
             android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name=".WoWoPathAnimationActivity"
+            android:theme="@style/ShowAppTheme" />
     </application>
 
 </manifest>
