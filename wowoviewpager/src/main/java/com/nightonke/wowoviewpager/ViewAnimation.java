@@ -53,4 +53,18 @@ public class ViewAnimation {
         }
     }
 
+    /**
+     * force to end the animation
+     * @param page the end position of the page
+     */
+    public void end(int page) {
+        if (page >= pageAnimations.size() || page < 0) return;
+        ArrayList<PageAnimation> pageAnimationsInPage = pageAnimations.get(page);
+        if (pageAnimationsInPage != null) {
+            for (PageAnimation pageAnimation : pageAnimationsInPage) {
+                pageAnimation.end(onView);
+            }
+        }
+    }
+
 }

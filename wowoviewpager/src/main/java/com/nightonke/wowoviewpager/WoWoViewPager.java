@@ -48,6 +48,7 @@ public class WoWoViewPager extends ViewPager {
 
         for (int i = 0; i < viewAnimations.size(); i++) {
             viewAnimations.get(i).play(position, positionOffset);
+            viewAnimations.get(i).end(position - 1);
         }
 
     }

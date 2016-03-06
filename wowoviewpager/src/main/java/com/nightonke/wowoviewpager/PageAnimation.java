@@ -36,6 +36,10 @@ public abstract class PageAnimation {
      */
     public abstract void play(View onView, float positionOffset);
 
+    public void end(View onView) {
+        play(onView, 1);
+    }
+
     public int getPage() {
         return page;
     }
