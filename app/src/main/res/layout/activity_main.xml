@@ -71,6 +71,13 @@
             android:text="@string/wowo_state_list_color_animation"
             />
 
+        <Button
+            android:id="@+id/wowo_rotation_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wowo_rotation_animation"
+            />
+
     </LinearLayout>
 
 </ScrollView>

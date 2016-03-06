@@ -54,6 +54,9 @@ public class SetEaseTypeActivity extends AppCompatActivity
             case "WoWoStateListColorAnimation":
                 intent = new Intent(this, WoWoStateListColorAnimationActivity.class);
                 break;
+            case "WoWoRotationAnimation":
+                intent = new Intent(this, WoWoRotationAnimationActivity.class);
+                break;
             default: return;
         }
         switch (parent.getId()) {

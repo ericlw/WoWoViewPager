@@ -39,7 +39,10 @@
             android:theme="@style/ShowAppTheme" />
         <activity
             android:name=".WoWoStateListColorAnimationActivity"
-            android:theme="@style/ShowAppTheme"/>
+            android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name=".WoWoRotationAnimationActivity"
+            android:theme="@style/ShowAppTheme" />
     </application>
 
 </manifest>
