@@ -46,36 +46,48 @@ public class WoWoTranslationAnimationActivity extends AppCompatActivity {
         ViewAnimation animation = new ViewAnimation(findViewById(R.id.android));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
                 0, 0f, 1f,
+                findViewById(R.id.android).getTranslationX(),
+                findViewById(R.id.android).getTranslationY(),
                 -screenW / 2 + WoWoUtil.dp2px(40, this),
                 -screenH / 2 + WoWoUtil.dp2px(40, this),
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
                 1, 0f, 1f,
+                -screenW / 2 + WoWoUtil.dp2px(40, this),
+                -screenH / 2 + WoWoUtil.dp2px(40, this),
                 screenW - WoWoUtil.dp2px(80, this),
                 screenH - WoWoUtil.dp2px(80, this),
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
                 2, 0f, 0.5f,
+                screenW / 2 - WoWoUtil.dp2px(40, this),
+                screenH / 2 - WoWoUtil.dp2px(40, this),
                 0,
                 -screenH / 2 + WoWoUtil.dp2px(40, this),
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
                 2, 0.5f, 1f,
+                screenW / 2 - WoWoUtil.dp2px(40, this),
+                0,
                 -screenW + WoWoUtil.dp2px(80, this),
                 0,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
                 3, 0f, 0.5f,
+                -screenW / 2 + WoWoUtil.dp2px(40, this),
+                0,
                 screenW / 2 - WoWoUtil.dp2px(40, this),
                 -screenH / 2 + WoWoUtil.dp2px(40, this),
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
                 3, 0.5f, 1f,
+                0,
+                -screenH / 2 + WoWoUtil.dp2px(40, this),
                 0,
                 screenH / 2 - WoWoUtil.dp2px(40, this),
                 easeType,

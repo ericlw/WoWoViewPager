@@ -85,6 +85,20 @@
             android:text="@string/wowo_path_animation"
             />
 
+        <Button
+            android:id="@+id/app_intro_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_intro_example"
+            />
+
+        <Button
+            android:id="@+id/cv_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cv_example"
+            />
+
     </LinearLayout>
 
 </ScrollView>

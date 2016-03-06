@@ -14,5 +14,15 @@
     <string name="wowo_rotation_animation">Rotation Animation</string>
     <string name="wowo_path_animation">Path Animation</string>
 
+    <string name="app_intro_example">APP Intro Example</string>
+    <string name="cv_example">CV Example</string>
+
     <string name="use_same_ease_type_back">Use same ease type when swiping back</string>
+
+    <string name="nightonke">NIGHTONKE</string>
+    <string name="presents">presents</string>
+    <string name="wowo">WoWo</string>
+    <string name="viewpager">ViewPager</string>
+    <string name="optimized">Optimized for scrolling app intros.</string>
+    <string name="free">Free and open source.</string>
 </resources>

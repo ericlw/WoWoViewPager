@@ -54,8 +54,8 @@ public class WoWoScaleAnimationActivity extends AppCompatActivity {
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoScaleAnimation(
                 2, 0f, 0.5f,
-                2f,
-                2f,
+                4f,
+                4f,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoScaleAnimation(

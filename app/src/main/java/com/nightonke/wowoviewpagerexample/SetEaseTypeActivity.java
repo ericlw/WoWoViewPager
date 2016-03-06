@@ -60,6 +60,9 @@ public class SetEaseTypeActivity extends AppCompatActivity
             case "WoWoPathAnimation":
                 intent = new Intent(this, WoWoPathAnimationActivity.class);
                 break;
+            case "CVExample":
+                intent = new Intent(this, WoWoPathAnimationActivity.class);
+                break;
             default: return;
         }
         switch (parent.getId()) {

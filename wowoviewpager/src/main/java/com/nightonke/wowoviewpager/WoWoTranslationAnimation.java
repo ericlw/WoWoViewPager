@@ -22,98 +22,11 @@ public class WoWoTranslationAnimation extends PageAnimation {
     private float fromX;
     private float fromY;
 
-    public WoWoTranslationAnimation(int page, float targetX, float targetY) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = true;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
-    }
-
-    public WoWoTranslationAnimation(int page, float targetX, float targetY, EaseType easeType) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = true;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
-    }
-
-    public WoWoTranslationAnimation(int page, float targetX, float targetY, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
-    }
-
-    public WoWoTranslationAnimation(int page, float targetX, float targetY, EaseType easeType, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
-    }
-
-    public WoWoTranslationAnimation(int page, float startOffset, float endOffset, float targetX, float targetY) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = true;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
-    }
-
-    public WoWoTranslationAnimation(int page, float startOffset, float endOffset, float targetX, float targetY, EaseType easeType) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = true;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
-    }
-
-    public WoWoTranslationAnimation(int page, float startOffset, float endOffset, float targetX, float targetY, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
-    }
-
-    public WoWoTranslationAnimation(int page, float startOffset, float endOffset, float targetX, float targetY, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoTranslationAnimation(
+            int page, float startOffset, float endOffset,
+            float fromX, float fromY,
+            float targetX, float targetY,
+            EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -122,8 +35,8 @@ public class WoWoTranslationAnimation extends PageAnimation {
         this.useSameEaseTypeBack = useSameEaseTypeBack;
         this.targetX = targetX;
         this.targetY = targetY;
-        fromX = -1;
-        fromY = -1;
+        this.fromX = fromX;
+        this.fromY = fromY;
     }
 
     /**
@@ -140,11 +53,21 @@ public class WoWoTranslationAnimation extends PageAnimation {
 
     private boolean firstTime = true;
     private boolean lastTimeIsExceed = false;
+    private boolean lastTimeIsLess = false;
 
     @Override
     public void play(View onView, float positionOffset) {
 
-        if (positionOffset < getStartOffset()) return;
+        if (positionOffset <= getStartOffset()) {
+            if (lastTimeIsLess) return;
+            onView.setTranslationX(fromX);
+            onView.setTranslationY(fromY);
+            onView.requestLayout();
+            lastTimeIsLess = true;
+            return;
+        }
+        lastTimeIsLess = false;
+
         if (positionOffset >= getEndOffset()) {
             // if the positionOffset exceeds the endOffset,
             // we should set onView to targetPosition
@@ -180,29 +103,6 @@ public class WoWoTranslationAnimation extends PageAnimation {
             }
         }
         lastPositionOffset = positionOffset;
-
-        if (firstTime) {
-            firstTime = false;
-
-            fromX = onView.getTranslationX();
-            fromY = onView.getTranslationY();
-
-            if (!extremeXIsSet) {
-                extremeXIsSet = true;
-                extremeX = fromX;
-            } else {
-                fromX = extremeX;
-            }
-
-            if (!extremeYIsSet) {
-                extremeYIsSet = true;
-                extremeY = fromY;
-            } else {
-                fromY = extremeY;
-            }
-
-            return;
-        }
 
         onView.setTranslationX(targetX * movementOffset + fromX);
         onView.setTranslationY(targetY * movementOffset + fromY);
