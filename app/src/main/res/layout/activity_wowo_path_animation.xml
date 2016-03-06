@@ -16,8 +16,11 @@
         android:id="@+id/pathview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:strokeColor="@color/red"
-        app:strokeWidth="5"
+        android:background="@android:color/transparent"
+        app:pathColor="@color/white"
+        app:pathWidth="5"
+        app:headImageId="@drawable/airplane"
+        app:headImageWidth="180"
         />
 
     <TextView
@@ -26,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:text="1"
         />

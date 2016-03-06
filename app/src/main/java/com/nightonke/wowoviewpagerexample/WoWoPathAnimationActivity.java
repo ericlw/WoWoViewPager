@@ -14,6 +14,7 @@ import com.nightonke.wowoviewpager.ViewAnimation;
 import com.nightonke.wowoviewpager.WoWoPathAnimation;
 import com.nightonke.wowoviewpager.WoWoPathView;
 import com.nightonke.wowoviewpager.WoWoRotationAnimation;
+import com.nightonke.wowoviewpager.WoWoUtil;
 import com.nightonke.wowoviewpager.WoWoViewPager;
 import com.nightonke.wowoviewpager.WoWoViewPagerAdapter;
 
@@ -38,8 +39,8 @@ public class WoWoPathAnimationActivity extends AppCompatActivity {
 
         wowo = (WoWoViewPager)findViewById(R.id.wowo_viewpager);
         adapter = new WoWoViewPagerAdapter(getSupportFragmentManager());
-        adapter.setFragmentsNumber(5);
-        adapter.setColorRes(R.color.white);
+        adapter.setFragmentsNumber(2);
+        adapter.setColorRes(R.color.light_blue);
         wowo.setAdapter(adapter);
         setPageTV(wowo);
     }
@@ -47,17 +48,43 @@ public class WoWoPathAnimationActivity extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+
         WoWoPathView pathView = (WoWoPathView)findViewById(R.id.pathview);
-        Path p = new Path();
-        p.moveTo(0, 0);
-        p.lineTo(pathView.getWidth(), 0);
-        p.lineTo(pathView.getWidth(), pathView.getHeight());
-        p.lineTo(0, pathView.getHeight());
-        p.lineTo(0, 0);
-        p.lineTo(pathView.getWidth(), pathView.getHeight());
-        p.lineTo(pathView.getWidth(), 0);
-        p.lineTo(0, pathView.getHeight());
-        pathView.setPath(p);
+
+        int screenW = WoWoUtil.getScreenWidth(this);
+        int screenH = WoWoUtil.getScreenHeight(this);
+
+        int xoff = 0;
+        int yoff = screenH / 2 - 303 - 80;
+
+        Path path = new Path();
+        path.moveTo(screenW + 300 + xoff, 303 + yoff);
+        path.cubicTo(
+                557 + xoff, 385 + yoff, 412 + xoff, 409 + yoff, 348 + xoff, 398 + yoff);
+        path.cubicTo(
+                307 + xoff, 391 + yoff, 194 + xoff, 355 + yoff, 151 + xoff, 314 + yoff);
+        path.cubicTo(
+                132 + xoff, 296 + yoff, 111 + xoff, 260 + yoff, 108 + xoff, 210 + yoff);
+        path.cubicTo(
+                105 + xoff, 163 + yoff, 110 + xoff, 133 + yoff, 131 + xoff, 93 + yoff);
+        path.cubicTo(
+                146 + xoff, 64 + yoff, 162 + xoff, 50 + yoff, 201 + xoff, 27 + yoff);
+        path.cubicTo(
+                222 + xoff, 15 + yoff, 263 + xoff, 5 + yoff, 299 + xoff, 3 + yoff);
+        path.cubicTo(
+                346 + xoff, 1 + yoff, 411 + xoff, 1 + yoff, 449 + xoff, 14 + yoff);
+        path.cubicTo(
+                482 + xoff, 25 + yoff, 498 + xoff, 31 + yoff, 523 + xoff, 53 + yoff);
+        path.cubicTo(
+                550 + xoff, 77 + yoff, 574 + xoff, 102 + yoff, 581 + xoff, 133 + yoff);
+        path.cubicTo(
+                589 + xoff, 168 + yoff, 579 + xoff, 225 + yoff, 566 + xoff, 245 + yoff);
+        path.cubicTo(
+                548 + xoff, 272 + yoff, 514 + xoff, 308 + yoff, 469 + xoff, 324 + yoff);
+        path.cubicTo(
+                430 + xoff, 338 + yoff, 139 + xoff, 413 + yoff, -100 + xoff, 393 + yoff);
+
+        pathView.setPath(path);
         ViewAnimation animation = new ViewAnimation(pathView);
         animation.addPageAnimaition(new WoWoPathAnimation(
                 0, 0f, 1f,

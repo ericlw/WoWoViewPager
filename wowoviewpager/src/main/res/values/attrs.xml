@@ -2,8 +2,11 @@
 <resources>
 
     <declare-styleable name="WoWoPathView">
-        <attr name="strokeColor" format="color"/>
-        <attr name="strokeWidth" format="float"/>
+        <attr name="pathColor" format="color"/>
+        <attr name="pathWidth" format="float"/>
+        <attr name="headImageId" format="integer"/>
+        <attr name="headImageWidth" format="float"/>
+        <attr name="headImageHeight" format="float"/>
     </declare-styleable>
 
 </resources>
