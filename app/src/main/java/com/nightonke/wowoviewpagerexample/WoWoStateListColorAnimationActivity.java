@@ -13,10 +13,11 @@ import com.nightonke.wowoviewpager.Color.ColorChangeType;
 import com.nightonke.wowoviewpager.Eases.EaseType;
 import com.nightonke.wowoviewpager.ViewAnimation;
 import com.nightonke.wowoviewpager.WoWoLayerListColorAnimation;
+import com.nightonke.wowoviewpager.WoWoStateListColorAnimation;
 import com.nightonke.wowoviewpager.WoWoViewPager;
 import com.nightonke.wowoviewpager.WoWoViewPagerAdapter;
 
-public class WoWoLayerListColorAnimationActivity extends AppCompatActivity {
+public class WoWoStateListColorAnimationActivity extends AppCompatActivity {
 
     private WoWoViewPager wowo;
     private WoWoViewPagerAdapter adapter;
@@ -31,7 +32,7 @@ public class WoWoLayerListColorAnimationActivity extends AppCompatActivity {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_wowo_layer_list_color_animation);
+        setContentView(R.layout.activity_wowo_state_list_color_animation);
 
         init();
 
@@ -48,31 +49,31 @@ public class WoWoLayerListColorAnimationActivity extends AppCompatActivity {
 
     private void setAnimation(View view, ColorChangeType colorChangeType) {
         ViewAnimation animation = new ViewAnimation(view);
-        animation.addPageAnimaition(new WoWoLayerListColorAnimation(
+        animation.addPageAnimaition(new WoWoStateListColorAnimation(
                 0, 0f, 1f,
-                new int[]{Color.parseColor("#000000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000")},
-                new int[]{Color.parseColor("#0000ff"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00")},
+                new int[]{Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000")},
+                new int[]{Color.parseColor("#00ff00"), Color.parseColor("#00ff00"), Color.parseColor("#00ff00")},
                 colorChangeType,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoLayerListColorAnimation(
+        animation.addPageAnimaition(new WoWoStateListColorAnimation(
                 1, 0f, 1f,
-                new int[]{Color.parseColor("#0000ff"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00")},
-                new int[]{Color.parseColor("#000000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000")},
+                new int[]{Color.parseColor("#00ff00"), Color.parseColor("#00ff00"), Color.parseColor("#00ff00")},
+                new int[]{Color.parseColor("#0000ff"), Color.parseColor("#0000ff"), Color.parseColor("#0000ff")},
                 colorChangeType,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoLayerListColorAnimation(
+        animation.addPageAnimaition(new WoWoStateListColorAnimation(
                 2, 0f, 1f,
-                new int[]{Color.parseColor("#000000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000")},
-                new int[]{Color.parseColor("#0000ff"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00")},
+                new int[]{Color.parseColor("#0000ff"), Color.parseColor("#0000ff"), Color.parseColor("#0000ff")},
+                new int[]{Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000")},
                 colorChangeType,
                 easeType,
                 useSameEaseTypeBack));
-        animation.addPageAnimaition(new WoWoLayerListColorAnimation(
+        animation.addPageAnimaition(new WoWoStateListColorAnimation(
                 3, 0f, 1f,
-                new int[]{Color.parseColor("#0000ff"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00")},
-                new int[]{Color.parseColor("#000000"), Color.parseColor("#ff0000"), Color.parseColor("#00ff00"), Color.parseColor("#00ff00"), Color.parseColor("#ff0000")},
+                new int[]{Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000")},
+                new int[]{Color.parseColor("#000000"), Color.parseColor("#000000"), Color.parseColor("#000000")},
                 colorChangeType,
                 easeType,
                 useSameEaseTypeBack));

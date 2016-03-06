@@ -1,9 +1,11 @@
 package com.nightonke.wowoviewpager;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
-import android.util.Log;
+import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 
 import com.nightonke.wowoviewpager.Color.ColorChangeType;
@@ -14,23 +16,23 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
  */
 
 /**
- * animation to change the color of layer-list-drawable of view
+ * animation to change the color of state-list-drawable of view
  * notice that the background of the view must be:
  *
  * <?xml version="1.0" encoding="utf-8"?>
- * <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+ * <selector xmlns:android="http://schemas.android.com/apk/res/android">
  *     <item .../>
  *     <item .../>
- * </layer-list>
+ * </selector>
  *
  */
-public class WoWoLayerListColorAnimation extends PageAnimation {
+public class WoWoStateListColorAnimation extends PageAnimation {
 
     private EaseType easeType;
     private boolean useSameEaseTypeBack = true;
 
     private ColorChangeType colorChangeType;
-    
+
     private int[] targetColor;
     private int[] fromColor;
 
@@ -45,7 +47,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
     private int[] fromB;
     private float[][] fromHSV;
 
-    public WoWoLayerListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType) {
+    public WoWoStateListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -59,7 +61,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoLayerListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType) {
+    public WoWoStateListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -73,7 +75,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoLayerListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
+    public WoWoStateListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -87,7 +89,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoLayerListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoStateListColorAnimation(int page, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(0);
         setEndOffset(1);
@@ -101,7 +103,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoLayerListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType) {
+    public WoWoStateListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -115,7 +117,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoLayerListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType) {
+    public WoWoStateListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -129,7 +131,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoLayerListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
+    public WoWoStateListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -143,7 +145,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         this.colorChangeType = colorChangeType;
     }
 
-    public WoWoLayerListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoStateListColorAnimation(int page, float startOffset, float endOffset, int[] fromColor, int[] targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -174,10 +176,13 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
             // otherwise there may be offsets between target color and actually color
             if (lastTimeIsExceed) return;
             // if the last time we do this, just return
-            LayerDrawable layerDrawable = (LayerDrawable) onView.getBackground();
+            StateListDrawable stateListDrawable = (StateListDrawable) onView.getBackground();
+            DrawableContainer.DrawableContainerState drawableContainerState
+                    = (DrawableContainer.DrawableContainerState) stateListDrawable.getConstantState();
+            Drawable[] drawables = drawableContainerState.getChildren();
             int length = targetColor.length;
             for (int i = 0; i < length; i++) {
-                ((GradientDrawable)layerDrawable.getDrawable(i)).setColor(targetColor[i]);
+                ((GradientDrawable)drawables[i]).setColor(targetColor[i]);
             }
             lastTimeIsExceed = true;
             return;
@@ -206,11 +211,14 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         }
         lastPositionOffset = positionOffset;
 
-        LayerDrawable layerDrawable = (LayerDrawable) onView.getBackground();
+        StateListDrawable stateListDrawable = (StateListDrawable) onView.getBackground();
+        DrawableContainer.DrawableContainerState drawableContainerState
+                = (DrawableContainer.DrawableContainerState) stateListDrawable.getConstantState();
+        Drawable[] drawables = drawableContainerState.getChildren();
         int length = targetColor.length;
         if (colorChangeType == ColorChangeType.RGB) {
             for (int i = 0; i < length; i++) {
-                ((GradientDrawable)layerDrawable.getDrawable(i)).setColor(
+                ((GradientDrawable)drawables[i]).setColor(
                         Color.argb(
                                 fromA[i] + (int)((targetA[i] - fromA[i]) * movementOffset),
                                 fromR[i] + (int)((targetR[i] - fromR[i]) * movementOffset),
@@ -220,7 +228,7 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
             }
         } else {
             for (int i = 0; i < length; i++) {
-                ((GradientDrawable)layerDrawable.getDrawable(i)).setColor(
+                ((GradientDrawable)drawables[i]).setColor(
                         Color.HSVToColor
                                 (new float[]{
                                         fromHSV[i][0] + (targetHSV[i][0] - fromHSV[i][0]) * movementOffset,

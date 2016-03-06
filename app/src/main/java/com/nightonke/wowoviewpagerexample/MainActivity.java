@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.wowo_drawable_color_animation).setOnClickListener(this);
         findViewById(R.id.wowo_textview_color_animation).setOnClickListener(this);
         findViewById(R.id.wowo_background_color_animation).setOnClickListener(this);
-        findViewById(R.id.wowo_layerlist_color_animation).setOnClickListener(this);
+        findViewById(R.id.wowo_layer_list_color_animation).setOnClickListener(this);
+        findViewById(R.id.wowo_state_list_color_animation).setOnClickListener(this);
     }
 
     @Override
@@ -43,8 +44,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.wowo_background_color_animation:
                 intent.putExtra("AnimationType", "WoWoBackgroundColorAnimation");
                 break;
-            case R.id.wowo_layerlist_color_animation:
+            case R.id.wowo_layer_list_color_animation:
                 intent.putExtra("AnimationType", "WoWoLayerListColorAnimation");
+                break;
+            case R.id.wowo_state_list_color_animation:
+                intent.putExtra("AnimationType", "WoWoStateListColorAnimation");
                 break;
         }
         startActivity(intent);

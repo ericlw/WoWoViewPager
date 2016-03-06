@@ -9,7 +9,8 @@
     <string name="wowo_drawable_color_animation_hsv">HSV Change Type</string>
     <string name="wowo_textview_color_animation">TextView Color Animation</string>
     <string name="wowo_background_color_animation">Background Color Animation</string>
-    <string name="wowo_layerlist_color_animation">Layer-List Color Animation</string>
+    <string name="wowo_layer_list_color_animation">Layer-List Color Animation</string>
+    <string name="wowo_state_list_color_animation">State-List Color Animation</string>
 
     <string name="use_same_ease_type_back">Use same ease type when swiping back</string>
 </resources>
