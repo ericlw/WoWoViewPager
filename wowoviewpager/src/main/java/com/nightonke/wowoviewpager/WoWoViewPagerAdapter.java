@@ -66,7 +66,7 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         private Integer color = null;
 
         public WoWoViewPagerFragment() {
-            this.colorRes = R.color.white;
+            this.colorRes = android.R.color.transparent;
         }
 
         public void setBackground(int colorRes) {

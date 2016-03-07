@@ -14,20 +14,19 @@
         android:layout_height="match_parent"
         />
 
-    <!--<View-->
-        <!--android:id="@+id/circle"-->
-        <!--android:layout_width="250dp"-->
-        <!--android:layout_height="250dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:background="@drawable/background_gray_blue_circle"-->
-        <!--/>-->
+    <View
+        android:id="@+id/circle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background_pink_blue_circle"
+        />
 
     <RelativeLayout
         android:id="@+id/sub_base"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:background="@color/light_blue"
         >
 
         <ImageView
@@ -131,6 +130,154 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="60dp"
             />
+
+        <TextView
+            android:id="@+id/projects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/projects"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:paddingLeft="40dp"
+            android:paddingStart="40dp"
+            android:paddingBottom="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            />
+
+        <TextView
+            android:id="@+id/braeco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/braeco"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/projects"
+            />
+
+        <TextView
+            android:id="@+id/braeco_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/braeco_more"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/braeco"
+            />
+
+        <TextView
+            android:id="@+id/cocoin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cocoin"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/braeco_more"
+            android:layout_marginTop="50dp"
+            />
+
+        <TextView
+            android:id="@+id/cocoin_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cocoin_more"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/cocoin"
+            />
+
+        <TextView
+            android:id="@+id/leeco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/leeco"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/cocoin_more"
+            android:layout_marginTop="50dp"
+            />
+
+        <TextView
+            android:id="@+id/leeco_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/leeco_more"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/leeco"
+            />
+
+        <com.nightonke.wowoviewpager.WoWoPathView
+            android:id="@+id/pathview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:pathColor="@color/white"
+            app:pathWidth="5"
+            app:headImageId="@drawable/airplane"
+            app:headImageWidth="240"
+            />
+
+        <LinearLayout
+            android:id="@+id/blog_and_github"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/for_more"
+                android:paddingLeft="40dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/blog"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/github"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                />
+
+        </LinearLayout>
 
     </RelativeLayout>
 

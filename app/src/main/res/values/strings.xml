@@ -31,4 +31,15 @@
     <string name="name">Weiping HUANG</string>
     <string name="university_text">Full-time the junior in SYSU</string>
     <string name="mail_text">Nightonke@outlook.com</string>
+    <string name="projects">Projects:</string>
+    <string name="braeco">BraecoWaiter</string>
+    <string name="braeco_more">Intelligent Restaurant Management Platform</string>
+    <string name="cocoin">CoCoin</string>
+    <string name="cocoin_more">Multi-view Accounting Application</string>
+    <string name="leeco">LeeCo</string>
+    <string name="leeco_more">Awesome App for Problems, Solutions, Discuss(from Leetcode) and Comments.</string>
+    <string name="for_more">For more:</string>
+    <string name="blog">Blog: blog.csdn.net/u012925008</string>
+    <string name="github">Github: github.com/Nightonke</string>
+
 </resources>

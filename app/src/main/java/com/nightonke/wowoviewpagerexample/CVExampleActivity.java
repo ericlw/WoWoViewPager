@@ -1,5 +1,6 @@
 package com.nightonke.wowoviewpagerexample;
 
+import android.graphics.Path;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,11 +11,13 @@ import android.widget.RelativeLayout;
 
 import com.nightonke.wowoviewpager.Color.ColorChangeType;
 import com.nightonke.wowoviewpager.Eases.EaseType;
-import com.nightonke.wowoviewpager.Eases.Linear;
 import com.nightonke.wowoviewpager.ViewAnimation;
 import com.nightonke.wowoviewpager.WoWoBackgroundColorAnimation;
+import com.nightonke.wowoviewpager.WoWoPathAnimation;
+import com.nightonke.wowoviewpager.WoWoPathView;
 import com.nightonke.wowoviewpager.WoWoRotationAnimation;
 import com.nightonke.wowoviewpager.WoWoScaleAnimation;
+import com.nightonke.wowoviewpager.WoWoShapeColorAnimation;
 import com.nightonke.wowoviewpager.WoWoTextViewSizeAnimation;
 import com.nightonke.wowoviewpager.WoWoTranslationAnimation;
 import com.nightonke.wowoviewpager.WoWoUtil;
@@ -37,7 +40,7 @@ public class CVExampleActivity extends AppCompatActivity {
 
         wowo = (WoWoViewPager)findViewById(R.id.wowo_viewpager);
         adapter = new WoWoViewPagerAdapter(getSupportFragmentManager());
-        adapter.setFragmentsNumber(4);
+        adapter.setFragmentsNumber(3);
         adapter.setColorRes(android.R.color.transparent);
         wowo.setAdapter(adapter);
     }
@@ -66,7 +69,7 @@ public class CVExampleActivity extends AppCompatActivity {
         layoutParams.width = screenW;
         subBase.setLayoutParams(layoutParams);
 
-        setSubBase();
+        setBase();
         setLogo();
         setName();
         setCV();
@@ -76,10 +79,21 @@ public class CVExampleActivity extends AppCompatActivity {
         setMailIcon();
         setMailText();
 
+        setProjects();
+        setBraeco();
+        setBraecoMore();
+        setCoCoin();
+        setCoCoinMore();
+        setLeeCo();
+        setLeeCoMore();
+
+        setCircle();
+        setPath();
+        setBlogAndGithub();
     }
 
-    private void setSubBase() {
-        ViewAnimation animation = new ViewAnimation(findViewById(R.id.sub_base));
+    private void setBase() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.base));
         animation.addPageAnimaition(new WoWoBackgroundColorAnimation(
                 0, 0, 1,
                 ContextCompat.getColor(this, R.color.light_blue),
@@ -257,5 +271,245 @@ public class CVExampleActivity extends AppCompatActivity {
         wowo.addAnimation(animation);
     }
 
+    private void setProjects() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.projects));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0, 1,
+                screenW,
+                findViewById(R.id.projects).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                0,
+                findViewById(R.id.projects).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setBraeco() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.braeco));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0, 1f,
+                screenW,
+                findViewById(R.id.braeco).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                0,
+                findViewById(R.id.braeco).getTranslationY(),
+                screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setBraecoMore() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.braeco_more));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0.2f, 1,
+                screenW,
+                findViewById(R.id.braeco_more).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                0,
+                findViewById(R.id.braeco_more).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setCoCoin() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.cocoin));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0, 1f,
+                screenW,
+                findViewById(R.id.cocoin).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                0,
+                findViewById(R.id.cocoin).getTranslationY(),
+                screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setCoCoinMore() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.cocoin_more));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0.2f, 1,
+                screenW,
+                findViewById(R.id.cocoin_more).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                0,
+                findViewById(R.id.cocoin_more).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setLeeCo() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.leeco));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0, 1f,
+                screenW,
+                findViewById(R.id.leeco).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                0,
+                findViewById(R.id.leeco).getTranslationY(),
+                screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setLeeCoMore() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.leeco_more));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0.2f, 1,
+                screenW,
+                findViewById(R.id.leeco_more).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                0,
+                findViewById(R.id.leeco_more).getTranslationY(),
+                -screenW,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setCircle() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.circle));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0, 1,
+                findViewById(R.id.cv_logo).getTranslationX(),
+                findViewById(R.id.cv_logo).getTranslationY(),
+                -screenW / 2 + 150,
+                -screenH / 2 + 200,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoShapeColorAnimation(
+                1, 0, 1,
+                ContextCompat.getColor(this, R.color.my_pink),
+                ContextCompat.getColor(this, R.color.light_blue),
+                ColorChangeType.RGB,
+                EaseType.Linear,
+                true
+        ));
+        animation.addPageAnimaition(new WoWoScaleAnimation(
+                1, 0, 1,
+                circleR * 2 / findViewById(R.id.circle).getWidth(),
+                circleR * 2 / findViewById(R.id.circle).getHeight(),
+                EaseType.EaseInBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
+
+    private void setPath() {
+        WoWoPathView pathView = (WoWoPathView)findViewById(R.id.pathview);
+        ViewGroup.LayoutParams layoutParams = pathView.getLayoutParams();
+        layoutParams.height = screenH;
+        layoutParams.width = screenW;
+        pathView.setLayoutParams(layoutParams);
+
+        int xoff = 0;
+        int yoff = screenH - 576 - 100;
+        float xScale = 1f;
+        float yScale = 1;
+
+        Path path = new Path();
+        path.moveTo(xScale * (screenW + xoff + 50), 167 + yoff);
+        path.cubicTo(
+                xScale * (654 + xoff), yScale * (492 + yoff),
+                xScale * (336 + xoff), yScale * (583 + yoff),
+                xScale * (-150 + xoff), yScale * (576 + yoff));
+
+        pathView.setPath(path);
+        ViewAnimation animation = new ViewAnimation(pathView);
+        animation.addPageAnimaition(new WoWoPathAnimation(
+                1, 0f, 1f,
+                EaseType.Linear,
+                true));
+        wowo.addAnimation(animation);
+    }
+
+    private void setBlogAndGithub() {
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.blog_and_github));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                0, 0, 1,
+                findViewById(R.id.blog_and_github).getTranslationX(),
+                screenH,
+                0,
+                0,
+                EaseType.EaseOutBack,
+                false
+        ));
+        animation.addPageAnimaition(new WoWoTranslationAnimation(
+                1, 0, 1,
+                findViewById(R.id.blog_and_github).getTranslationX(),
+                screenH,
+                0,
+                -screenH,
+                EaseType.EaseOutBack,
+                false
+        ));
+        wowo.addAnimation(animation);
+    }
 
 }
