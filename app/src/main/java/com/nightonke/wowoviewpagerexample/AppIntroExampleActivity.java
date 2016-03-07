@@ -4,6 +4,7 @@ import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -43,6 +44,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
         adapter.setFragmentsNumber(4);
         adapter.setColorRes(R.color.black_background);
         wowo.setAdapter(adapter);
+
     }
 
     private int screenW = 1;

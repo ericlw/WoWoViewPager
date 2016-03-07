@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -50,6 +50,7 @@
         <activity
             android:name=".AppIntroExampleActivity"
             android:theme="@style/ShowAppTheme" />
+        <activity android:name=".CVExampleActivity"></activity>
     </application>
 
 </manifest>

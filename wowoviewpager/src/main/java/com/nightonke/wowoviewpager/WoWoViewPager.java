@@ -3,8 +3,9 @@ package com.nightonke.wowoviewpager;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.view.animation.AccelerateInterpolator;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +17,8 @@ public class WoWoViewPager extends ViewPager {
      * viewAnimations for many views
      */
     private ArrayList<ViewAnimation> viewAnimations;
+
+    private int scrollDuration = 1000;
 
     public WoWoViewPager(Context context) {
         super(context);
@@ -53,5 +56,26 @@ public class WoWoViewPager extends ViewPager {
 
     }
 
-    private int lastPosition = -1;
+    public int getScrollDuration() {
+        return scrollDuration;
+    }
+
+    public void setScrollDuration(int scrollDuration) {
+        this.scrollDuration = scrollDuration;
+        try {
+            Field mScroller;
+            mScroller = ViewPager.class.getDeclaredField("mScroller");
+            mScroller.setAccessible(true);
+            WoWoScroller scroller = new WoWoScroller(this.getContext(), new AccelerateInterpolator());
+            scroller.setmDuration(this.scrollDuration);
+            mScroller.set(this, scroller);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
