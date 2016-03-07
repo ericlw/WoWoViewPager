@@ -50,7 +50,9 @@
         <activity
             android:name=".AppIntroExampleActivity"
             android:theme="@style/ShowAppTheme" />
-        <activity android:name=".CVExampleActivity"></activity>
+        <activity
+            android:name=".CVExampleActivity"
+            android:theme="@style/ShowAppTheme" />
     </application>
 
 </manifest>

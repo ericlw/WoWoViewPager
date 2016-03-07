@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, AppIntroExampleActivity.class));
                 return;
             case R.id.cv_example:
-                intent.putExtra("AnimationType", "CVExample");
-                break;
+                startActivity(new Intent(this, CVExampleActivity.class));
+                return;
         }
         startActivity(intent);
     }

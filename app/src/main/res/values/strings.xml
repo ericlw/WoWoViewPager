@@ -25,4 +25,10 @@
     <string name="viewpager">ViewPager</string>
     <string name="optimized">Optimized for scrolling app intros.</string>
     <string name="free">Free and open source.</string>
+
+    <string name="cv">CV</string>
+    <string name="for_android_developer">4 Android Developer</string>
+    <string name="name">Weiping HUANG</string>
+    <string name="university_text">Full-time the junior in SYSU</string>
+    <string name="mail_text">Nightonke@outlook.com</string>
 </resources>
