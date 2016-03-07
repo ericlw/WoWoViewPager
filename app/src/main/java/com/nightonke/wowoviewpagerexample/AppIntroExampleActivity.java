@@ -262,7 +262,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 false
         ));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
-                1, 0, 1,
+                1, 0, 0.5f,
                 0,
                 0,
                 0,
@@ -299,7 +299,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 true
         ));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
-                1, 0, 1,
+                1, 0, 0.5f,
                 0,
                 0,
                 0,
@@ -376,18 +376,30 @@ public class AppIntroExampleActivity extends AppCompatActivity {
 
     private void setPath() {
         WoWoPathView pathView = (WoWoPathView)findViewById(R.id.pathview);
+        ViewGroup.LayoutParams layoutParams = pathView.getLayoutParams();
+        layoutParams.height = screenH;
+        layoutParams.width = screenW + 200;
+        pathView.setLayoutParams(layoutParams);
 
-        int xoff = -220;
-        int yoff = screenH - 616 - 100;
+        int xoff = -300;
+        int yoff = screenH - 616 - 300;
+        float xScale = 1.5f;
+        float yScale = 1;
 
         Path path = new Path();
-        path.moveTo(565 + xoff, screenH + yoff);
+        path.moveTo(xScale * (565 + xoff), screenH + yoff);
         path.cubicTo(
-                509 + xoff, 385 + yoff, 144 + xoff, 272 + yoff, 394 + xoff, 144 + yoff);
+                xScale * (509 + xoff), yScale * (385 + yoff),
+                xScale * (144 + xoff), yScale * (272 + yoff),
+                xScale * (394 + xoff), yScale * (144 + yoff));
         path.cubicTo(
-                477 + xoff,  99 + yoff, 596 + xoff, 91 + yoff, 697 + xoff, 128 + yoff);
+                xScale * (477 + xoff), yScale * (99 + yoff),
+                xScale * (596 + xoff), yScale * (91 + yoff),
+                xScale * (697 + xoff), yScale * (128 + yoff));
         path.cubicTo(
-                850 + xoff, 189 + yoff, 803 + xoff, 324 + yoff, 66 + xoff, 307 + yoff);
+                xScale * (850 + xoff), yScale * (189 + yoff),
+                xScale * (803 + xoff), yScale * (324 + yoff),
+                xScale * (66 + xoff), yScale * (307 + yoff));
 
         pathView.setPath(path);
         ViewAnimation animation = new ViewAnimation(pathView);
@@ -396,7 +408,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 EaseType.Linear,
                 true));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
-                2, 0.5f, 1,
+                2, 0, 1,
                 0,
                 EaseType.Linear,
                 true
@@ -421,7 +433,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 0,
                 0,
                 0,
-                EaseType.EaseOutBack,
+                EaseType.Linear,
                 true
         ));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
@@ -430,7 +442,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 0,
                 -screenW,
                 0,
-                EaseType.EaseOutBack,
+                EaseType.Linear,
                 true
         ));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
@@ -465,6 +477,16 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 EaseType.Linear,
                 true
         ));
+        animation.addPageAnimaition(new WoWoRotationAnimation(
+                2, 0, 1,
+                findViewById(R.id.sun).getPivotX(),
+                findViewById(R.id.sun).getPivotY(),
+                0,
+                0,
+                360 * 4,
+                EaseType.EaseOutBack,
+                false
+        ));
         wowo.addAnimation(animation);
     }
 
@@ -476,7 +498,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 0,
                 0,
                 0,
-                EaseType.EaseOutBack,
+                EaseType.Linear,
                 true
         ));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
@@ -485,7 +507,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 0,
                 -screenW,
                 0,
-                EaseType.EaseOutBack,
+                EaseType.Linear,
                 true
         ));
         wowo.addAnimation(animation);
