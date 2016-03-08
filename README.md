@@ -9,10 +9,10 @@ Just like rewinding time.
 
 # Guide
 
-[Gradle](https://github.com/Nightonke/WoWoViewPager#gradle)
+[Gradle](https://github.com/Nightonke/WoWoViewPager#gradle)  
 [Note](https://github.com/Nightonke/WoWoViewPager#note)  
 [Demo](https://github.com/Nightonke/WoWoViewPager#demo)  
-[Versions](https://github.com/Nightonke/WoWoViewPager#version)  
+[Versions](https://github.com/Nightonke/WoWoViewPager#versions)  
 [Todo](https://github.com/Nightonke/WoWoViewPager#todo)  
 [License](https://github.com/Nightonke/WoWoViewPager#license)  
 
