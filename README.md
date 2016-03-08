@@ -9,11 +9,12 @@ Just like rewinding time.
 
 # Guide
 
-### Note
-[Note](https://github.com/Nightonke/WoWoViewPager#note)
-
-### Demo
-[Demo](https://github.com/Nightonke/WoWoViewPager#demo)
+[Gradle](https://github.com/Nightonke/WoWoViewPager#gradle)
+[Note](https://github.com/Nightonke/WoWoViewPager#note)  
+[Demo](https://github.com/Nightonke/WoWoViewPager#demo)  
+[Versions](https://github.com/Nightonke/WoWoViewPager#version)  
+[Todo](https://github.com/Nightonke/WoWoViewPager#todo)  
+[License](https://github.com/Nightonke/WoWoViewPager#license)  
 
 ### Animations Usage
 #### Basic Animations  
@@ -39,14 +40,7 @@ Just like rewinding time.
 1. [Ease](https://github.com/Nightonke/WoWoViewPager#ease)
 2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)
 
-### Versions
-[Versions](https://github.com/Nightonke/WoWoViewPager#versions)
-
-### Todo
-[Todo](https://github.com/Nightonke/WoWoViewPager#todo)
-
-### License
-[License](https://github.com/Nightonke/WoWoViewPager#license)
+# Gradle
 
 # Note
 1. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration.
