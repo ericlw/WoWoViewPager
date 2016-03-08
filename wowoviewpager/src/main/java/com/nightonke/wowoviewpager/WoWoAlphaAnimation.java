@@ -1,7 +1,6 @@
 package com.nightonke.wowoviewpager;
 
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
 
@@ -12,6 +11,7 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
 /**
  * animation to change the alpha of view
  */
+
 public class WoWoAlphaAnimation extends PageAnimation {
 
     private EaseType easeType;
@@ -20,119 +20,54 @@ public class WoWoAlphaAnimation extends PageAnimation {
     private float targetAlpha;
     private float fromAlpha;
 
-    public WoWoAlphaAnimation(int page, float targetAlpha) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
-    public WoWoAlphaAnimation(int page, float targetAlpha, EaseType easeType) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
-    public WoWoAlphaAnimation(int page, float targetAlpha, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
-    public WoWoAlphaAnimation(int page, float targetAlpha, EaseType easeType, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha, EaseType easeType) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = true;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float targetAlpha, EaseType easeType, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.targetAlpha = targetAlpha;
-        fromAlpha = -1;
-    }
-
     /**
-     * every pageAnimation has extreme alpha
-     * we have to reset the extreme to prevent the offset of alpha
+     *
+     * @param page animation will start from this page
+     * @param startOffset animation will start from this offset
+     * @param endOffset animation will end at this offset
+     * @param fromAlpha starting alpha
+     * @param targetAlpha target alpha
+     * @param easeType ease type, for more information, please check the EaseType class
+     * @param useSameEaseTypeBack whether use same ease type to go back
      */
-    private float extremeAlpha = -1;
-    private boolean extremeAlphaIsSet = false;
+    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float fromAlpha, float targetAlpha, EaseType easeType, boolean useSameEaseTypeBack) {
+        setPage(page);
+        setStartOffset(startOffset);
+        setEndOffset(endOffset);
+
+        this.easeType = easeType;
+        this.useSameEaseTypeBack = useSameEaseTypeBack;
+        this.targetAlpha = targetAlpha;
+        this.fromAlpha = fromAlpha;
+    }
 
     private float lastPositionOffset = -1;
 
     private boolean firstTime = true;
     private boolean lastTimeIsExceed = false;
+    private boolean lastTimeIsLess = false;
 
     @Override
     public void play(View onView, float positionOffset) {
 
-        if (positionOffset < getStartOffset()) {
+        // if the positionOffset is less than the start offset,
+        // we should set onView to starting alpha
+        // otherwise there may be offsets between starting alpha and actually alpha
+        // notice that if the last time we have done this action, just return
+        if (positionOffset <= getStartOffset()) {
+            if (lastTimeIsLess) return;
+            onView.setAlpha(fromAlpha);
+            lastTimeIsLess = true;
             return;
         }
+        lastTimeIsLess = false;
 
+        // if the positionOffset exceeds the endOffset,
+        // we should set onView to target alpha
+        // otherwise there may be offsets between target alpha and actually alpha
+        // notice that if the last time we have done this action, just return
         if (positionOffset >= getEndOffset()) {
-            // if the positionOffset exceeds the endOffset,
-            // we should set onView to target alpha
-            // otherwise there may be offsets between target alpha and actually alpha
             if (lastTimeIsExceed) return;
-            // if the last time we do this, just return
             onView.setAlpha(targetAlpha);
             lastTimeIsExceed = true;
             return;
@@ -160,21 +95,6 @@ public class WoWoAlphaAnimation extends PageAnimation {
             }
         }
         lastPositionOffset = positionOffset;
-
-        if (firstTime) {
-            firstTime = false;
-
-            fromAlpha = onView.getAlpha();
-
-            if (!extremeAlphaIsSet) {
-                extremeAlphaIsSet = true;
-                extremeAlpha = fromAlpha;
-            } else {
-                fromAlpha = extremeAlpha;
-            }
-
-            return;
-        }
 
         onView.setAlpha(fromAlpha + (targetAlpha - fromAlpha) * movementOffset);
 
