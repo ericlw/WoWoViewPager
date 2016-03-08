@@ -48,7 +48,7 @@ public class WoWoTextViewTextSizeAnimationActivity extends AppCompatActivity {
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoTextViewSizeAnimation(
                 1, 0f, 1f,
-                50,
+                20,
                 60,
                 easeType,
                 useSameEaseTypeBack));

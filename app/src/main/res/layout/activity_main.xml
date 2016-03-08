@@ -3,17 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:scrollbars="none"
     tools:context="com.nightonke.wowoviewpagerexample.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
         >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/basic_animations"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            />
 
         <Button
             android:id="@+id/wowo_translation_animation"
@@ -37,10 +48,37 @@
             />
 
         <Button
-            android:id="@+id/wowo_drawable_color_animation"
+            android:id="@+id/wowo_rotation_animation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/wowo_drawable_color_animation"
+            android:text="@string/wowo_rotation_animation"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/font_size_animations"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            />
+
+        <Button
+            android:id="@+id/wowo_textview_textsize_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wowo_textview_textsize_animation"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/color_animations"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
             />
 
         <Button
@@ -58,10 +96,10 @@
             />
 
         <Button
-            android:id="@+id/wowo_layer_list_color_animation"
+            android:id="@+id/wowo_drawable_color_animation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/wowo_layer_list_color_animation"
+            android:text="@string/wowo_drawable_color_animation"
             />
 
         <Button
@@ -72,10 +110,20 @@
             />
 
         <Button
-            android:id="@+id/wowo_rotation_animation"
+            android:id="@+id/wowo_layer_list_color_animation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/wowo_rotation_animation"
+            android:text="@string/wowo_layer_list_color_animation"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/path_animations"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
             />
 
         <Button
@@ -83,6 +131,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/wowo_path_animation"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/example"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
             />
 
         <Button
@@ -97,13 +155,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cv_example"
-            />
-
-        <Button
-            android:id="@+id/wowo_textview_textsize_animation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/wowo_textview_textsize_animation"
             />
 
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.nightonke.wowoviewpager;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Weiping on 2016/3/3.
@@ -49,7 +52,35 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
         if (fragment == null) {
             fragment = new WoWoViewPagerFragment();
-            fragment.setBackground(colorRes);
+            if (colorRes != null) {
+                // the resource of color of all fragments has been set
+                fragment.setColorRes(colorRes);
+            } else {
+                if (color != null) {
+                    // the color of all fragments has been set
+                    fragment.setColor(color);
+                } else {
+                    if (colors != null) {
+                        if (position < 0 || position >= colors.size()) {
+                            // out of index
+                            fragment.setColor(colors.get(position));
+                        } else {
+                            fragment.setColor(Color.TRANSPARENT);
+                        }
+                    } else {
+                        if (colorsRes != null) {
+                            if (position < 0 || position >= colorsRes.size()) {
+                                // out of index
+                                fragment.setColor(Color.TRANSPARENT);
+                            } else {
+                                fragment.setColorRes(colorsRes.get(position));
+                            }
+                        } else {
+                            fragment.setColor(Color.TRANSPARENT);
+                        }
+                    }
+                }
+            }
         }
 
         return fragment;
@@ -69,8 +100,22 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
             this.colorRes = android.R.color.transparent;
         }
 
-        public void setBackground(int colorRes) {
+        public Integer getColorRes() {
+            return colorRes;
+        }
+
+        public void setColorRes(Integer colorRes) {
             this.colorRes = colorRes;
+            color = null;
+        }
+
+        public Integer getColor() {
+            return color;
+        }
+
+        public void setColor(Integer color) {
+            this.color = color;
+            colorRes = null;
         }
 
         @Override
@@ -80,7 +125,20 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.MATCH_PARENT));
             view.setOrientation(LinearLayout.VERTICAL);
-            view.setBackgroundColor(ContextCompat.getColor(getActivity(), colorRes));
+
+            if (colorRes != null) {
+                // the resource of color has been set
+                view.setBackgroundColor(ContextCompat.getColor(getActivity(), colorRes));
+            } else {
+                if (color != null) {
+                    // the color has been set
+                    view.setBackgroundColor(color);
+                } else {
+                    // set transparent
+                    view.setBackgroundColor(Color.TRANSPARENT);
+                }
+            }
+
             return view;
         }
 
@@ -96,6 +154,9 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public void setColorRes(int colorRes) {
         this.colorRes = colorRes;
+        colorsRes = null;
+        colors = null;
+        color = null;
     }
 
     public Integer getColor() {
@@ -104,21 +165,38 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public void setColor(Integer color) {
         this.color = color;
+        colorRes = null;
+        colors = null;
+        colorsRes = null;
     }
 
     public ArrayList<Integer> getColorsRes() {
         return colorsRes;
     }
 
+    public void setColorsRes(Integer[] colorsRes) {
+        setColorsRes(new ArrayList<>(Arrays.asList(colorsRes)));
+    }
+
     public void setColorsRes(ArrayList<Integer> colorsRes) {
         this.colorsRes = colorsRes;
+        colors = null;
+        color = null;
+        colorRes = null;
     }
 
     public ArrayList<Integer> getColors() {
         return colors;
     }
 
+    public void setColors(Integer[] colors) {
+        setColors(new ArrayList<>(Arrays.asList(colors)));
+    }
+
     public void setColors(ArrayList<Integer> colors) {
         this.colors = colors;
+        colorRes = null;
+        color = null;
+        colorsRes = null;
     }
 }

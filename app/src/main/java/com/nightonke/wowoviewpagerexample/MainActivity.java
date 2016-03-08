@@ -1,11 +1,16 @@
 package com.nightonke.wowoviewpagerexample;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,5 +77,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
         }
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_github:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(
+                        "https://github.com/Nightonke/WoWoViewPager")));
+                return true;
+            case R.id.action_developer:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(
+                        "https://github.com/Nightonke")));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

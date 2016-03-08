@@ -1,8 +1,8 @@
 package com.nightonke.wowoviewpagerexample;
 
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -39,7 +39,12 @@ public class WoWoTranslationAnimationActivity extends AppCompatActivity {
         wowo = (WoWoViewPager)findViewById(R.id.wowo_viewpager);
         adapter = new WoWoViewPagerAdapter(getSupportFragmentManager());
         adapter.setFragmentsNumber(5);
-        adapter.setColorRes(R.color.white);
+        adapter.setColorsRes(new Integer[]{
+                R.color.white,
+                R.color.light_blue,
+                R.color.white,
+                R.color.light_blue,
+                R.color.white});
         wowo.setAdapter(adapter);
         setPageTV(wowo);
 
