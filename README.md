@@ -18,11 +18,23 @@ And there are App intros example and CV example(the above gifs) in the demo.
 # Animations Guide
 
 ### Basic Animations  
-
 1. [Translation Animation](https://github.com/Nightonke/WoWoViewPager#translation-animation)
 2. [Scale Animation](https://github.com/Nightonke/WoWoViewPager#scale-animation)
 3. [Alpha Animation](https://github.com/Nightonke/WoWoViewPager#alpha-animation)
 4. [Rotation Animation](https://github.com/Nightonke/WoWoViewPager#rotation-animation)
+
+### Font Size Animation
+1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager#textview-size-animation)
+
+### Color Animations
+1. [TextView Color Animation](https://github.com/Nightonke/WoWoViewPager#textview-color-animation)
+2. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation)
+3. [Shape Color Animation](https://github.com/Nightonke/WoWoViewPager#shape-color-animation)
+4. [State-List Color Animation](https://github.com/Nightonke/WoWoViewPager#state-list-color-animation)
+5. [Layer-List Color Animation](https://github.com/Nightonke/WoWoViewPager#layer-list-color-animation)
+
+### Path Animation
+1. [Path Animation](https://github.com/Nightonke/WoWoViewPager#path-animation)
 
 # Animations Usage  
 ### Basic Animations  
@@ -214,6 +226,18 @@ wowoViewPager.addAnimation(animation);
 The code above will cause the view upside down. 
 Notice that in the above gif, the pivot of the 2 textview are different. 
 For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoRotationAnimationActivity.java).  
+
+### Font Size Animation  
+#### TextView Size Animation  
+### Color Animations
+#### TextView Color Animation
+#### Background Color Animation
+#### Shape Color Animation
+#### State-List Color Animation
+#### Layer-List Color Animation
+
+### Path Animation
+#### Path Animation
 
 # Ease Type
 
