@@ -2,7 +2,10 @@
 ![WoWoViewPager App Intros Example](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/AppIntroExample.gif) 
 ![WoWoViewPager CV Example](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/CVExample.gif)
 
-Optimized for scrolling app intros or making your CV app. Free and open source.
+Optimized for scrolling app intros or making your CV app. Free and open source.  
+WoWoViewPager combines animations and viewpager. 
+When you are swiping viewpager, you are also controlling the frames of the animation. 
+Just like rewinding time. 
 
 # Note
 1. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration.
@@ -39,20 +42,20 @@ Translation animation helps to move a view.
                               when swiping from page to page + 1
                               
  * @param fromX               The starting horizontal position of this view 
-                              relative to its left position, in pixels.
+                              relative to its left position, in pixels
                               
  * @param fromY               The starting vertical position of this view 
-                              relative to its top position, in pixels.
+                              relative to its top position, in pixels
                               
  * @param targetX             The ending horizontal position of this view 
-                              relative to its left position, in pixels.
+                              relative to its left position, in pixels
                               
  * @param targetY             The ending vertical position of this view 
-                              relative to its top position, in pixels.
+                              relative to its top position, in pixels
                               
- * @param easeType            Ease type, please check the ease type section.
+ * @param easeType            Ease type, please check the ease type section
  
- * @param useSameEaseTypeBack Whether use the same ease type to back.
+ * @param useSameEaseTypeBack Whether use the same ease type to back
  */
 ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
 animation.addPageAnimaition(new WoWoTranslationAnimation(
@@ -99,9 +102,9 @@ Scale animation helps to scale a view.
  
  * @param targetScaleY        Target scale y = target y / original y
  
- * @param easeType            Ease type, please check the ease type section.
+ * @param easeType            Ease type, please check the ease type section
  
- * @param useSameEaseTypeBack Whether use the same ease type to back.
+ * @param useSameEaseTypeBack Whether use the same ease type to back
  */
 ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
 animation.addPageAnimaition(new WoWoScaleAnimation(
@@ -121,11 +124,96 @@ wowoViewPager.addAnimation(animation);
 You can combine several animations to create a complex animation. For example, you can create 2 translation animations to make a polyline. Let's see the code above. From offset 0 to offset 0.5 starting from page 3, the width of the view doubles. And then, the height of the view doubles from offset 0.5 to offset 1. 
 For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoScaleAnimationActivity.java).  
 
-
 #### Alpha Animation  
-Alpha animation helps to change the opacity of the view, making fading or appearing effects. 
+Alpha animation helps to change the opacity of the view, making fading or appearing effects.  
+![Alpha animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/AlphaAnimation.gif)  
+```java
+/**
+ *
+ * @param page                The alpha animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The alpha animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The alpha animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromAlpha           Original alpha
+     
+ * @param targetAlpha         Target alpha
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoAlphaAnimation(
+        3, 0f, 0.5f,
+        1,
+        0.3f,
+        easeType,
+        useSameEaseTypeBack));
+animation.addPageAnimaition(new WoWoAlphaAnimation(
+        3, 0.5f, 1f,
+        0.3f,
+        1f,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+That's quite easy to understand. For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoAlphaAnimationActivity.java).  
+
 #### Rotation Animation  
-Rotation animation helps to rotate a view. 
+Rotation animation helps to rotate a view.  
+![Rotation animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/RotationAnimation.gif)  
+```java
+/**
+ *
+ * @param page                The alpha animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The alpha animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The alpha animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+ *        _ _ _ _ _ _ _
+ *      /|    x
+ *     / |
+ *    /  |y
+ *   /   |
+ *  /z   |
+ * /     |
+ *
+ * @param pivotX              The x value of the pivot of this rotation animation
+ 
+ * @param pivotY              The y value of the pivot of this rotation animation
+ 
+ * @param targetX             The target degree on x axis
+ 
+ * @param targetY             The target degree on y axis
+ 
+ * @param targetZ             The target degree on z axis
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoRotationAnimation(
+        0, 0f, 1f,
+        pivotX, pivotY,
+        0,
+        0,
+        180,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+The code above will cause the view upside down. 
+Notice that in the above gif, the pivot of the 2 textview are different. 
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoRotationAnimationActivity.java).  
 
 # Ease Type
 
