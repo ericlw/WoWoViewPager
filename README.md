@@ -13,7 +13,14 @@ Just like rewinding time.
 
 # Demo
 There is a demo for the current animations that WoWoViewPager supports. 
-And there are App intros example and CV example(the above gifs) in the demo. 
+And there are App intros example and CV example(the above gifs) in the demo.  
+![WoWo V1.0.1](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.png)  
+Or by link:  
+[WoWo V1.0.1 in Github](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.apk?raw=true)  
+[WoWo V1.0.1 in Fir](http://fir.im/wowoviewpager)  
+![Demo Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_animation.png) 
+![Demo Ease Type](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_ease_type.png)  
+You can try every animation and ease type that WoWoViewPager supports.   
 
 # Animations Guide
 
@@ -229,6 +236,44 @@ For more codes about scale animation, please check the [code](https://github.com
 
 ### Font Size Animation  
 #### TextView Size Animation  
+TextView size animation helps to change the font size of textview.  
+```java
+/**
+ *
+ * @param page                The textview size animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The textview size animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The textview size animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromSize            Original text size in sp
+ 
+ * @param targetSize          Target text size in sp
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoTextViewSizeAnimation(
+        0, 0f, 1f,
+        50,
+        20,
+        easeType,
+        useSameEaseTypeBack));
+animation.addPageAnimaition(new WoWoTextViewSizeAnimation(
+        1, 0f, 1f,
+        20,
+        60,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java).  
+
 ### Color Animations
 #### TextView Color Animation
 #### Background Color Animation
