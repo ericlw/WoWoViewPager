@@ -34,8 +34,8 @@ You can try every animation and ease type that WoWoViewPager supports.
 1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager#textview-size-animation)
 
 ### Color Animations
-1. [TextView Color Animation](https://github.com/Nightonke/WoWoViewPager#textview-color-animation)
-2. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation)
+1. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation)
+2. [TextView Color Animation](https://github.com/Nightonke/WoWoViewPager#textview-color-animation)
 3. [Shape Color Animation](https://github.com/Nightonke/WoWoViewPager#shape-color-animation)
 4. [State-List Color Animation](https://github.com/Nightonke/WoWoViewPager#state-list-color-animation)
 5. [Layer-List Color Animation](https://github.com/Nightonke/WoWoViewPager#layer-list-color-animation)
@@ -43,8 +43,14 @@ You can try every animation and ease type that WoWoViewPager supports.
 ### Path Animation
 1. [Path Animation](https://github.com/Nightonke/WoWoViewPager#path-animation)
 
+### Animation Types
+1. [Ease](https://github.com/Nightonke/WoWoViewPager#ease)
+2. [RGB & HSV](https://github.com/Nightonke/WoWoViewPager#rgb-&-hsv)
+
 # Animations Usage  
+
 ### Basic Animations  
+
 #### Translation Animation  
 Translation animation helps to move a view.  
 ![Translation animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/TranslationAnimation.gif)  
@@ -275,8 +281,86 @@ wowoViewPager.addAnimation(animation);
 For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java).  
 
 ### Color Animations
-#### TextView Color Animation
+
 #### Background Color Animation
+Background color animation helps to change the color of background.  
+![Background Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/BackgroundColorAnimation.gif)  
+```java
+/**
+ *
+ * @param page                The background color animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The background color animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The background color animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromColor           Original color
+ 
+ * @param targetColor         Target color
+ 
+ * @param colorChangeType     How to change the color. For more information, 
+                              please check the ColorChangeType.class
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoBackgroundColorAnimation(
+        0, 0f, 1f,
+        Color.parseColor("#ff0000"),
+        Color.parseColor("#00ff00"),
+        colorChangeType,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+Notice that background color animation can only do its job when the view has the setBackgroundColor() method. 
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoBackgroundColorAnimationActivity.java).  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-&-hsv)  
+
+#### TextView Color Animation
+TextView color animation helps to change the font color of textview only.  
+```java
+/**
+ *
+ * @param page                The textview color animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The textview color animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The textview color animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromColor           Original color
+ 
+ * @param targetColor         Target color
+ 
+ * @param colorChangeType     How to change the color. For more information, 
+                              please check the ColorChangeType.class
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoTextViewColorAnimation(
+        0, 0f, 1f,
+        Color.parseColor("#ff0000"),
+        Color.parseColor("#00ff00"),
+        colorChangeType,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+Notice that textview color animation can only do its job when the view is textview. 
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewColorAnimationActivity.java).  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-&-hsv)  
+
 #### Shape Color Animation
 #### State-List Color Animation
 #### Layer-List Color Animation
@@ -284,9 +368,16 @@ For more codes about scale animation, please check the [code](https://github.com
 ### Path Animation
 #### Path Animation
 
-# Ease Type
+# Ease
 
-# Color Changing Type
+# RGB & HSV
+All the color changing animation has 2 types, RGB and HSV(Hue [0 .. 360), Saturation [0...1] and Value [0...1] If hsv values are out of range, they are pinned). 
+The HSV changing type may looks more comfortable in nature. 
+For instance, to change red to green, in HSV, it will be red->yellow->green. 
+In RGB, it will be red->some color between red and green->green. 
+But usually the RGB changing type is the good one. 
+Because HSV sometimes looks strange(my opinion). 
+You can see the performance of these 2 types in the gif of [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation).  
 
 # Version
 ### 1.0.1  
