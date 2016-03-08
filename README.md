@@ -236,6 +236,44 @@ For more codes about scale animation, please check the [code](https://github.com
 
 ### Font Size Animation  
 #### TextView Size Animation  
+TextView size animation helps to change the font size of textview.  
+```java
+/**
+ *
+ * @param page                The textview size animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The textview size animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The textview size animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromSize            Original text size in sp
+ 
+ * @param targetSize          Target text size in sp
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoTextViewSizeAnimation(
+        0, 0f, 1f,
+        50,
+        20,
+        easeType,
+        useSameEaseTypeBack));
+animation.addPageAnimaition(new WoWoTextViewSizeAnimation(
+        1, 0f, 1f,
+        20,
+        60,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java).  
+
 ### Color Animations
 #### TextView Color Animation
 #### Background Color Animation
