@@ -13,6 +13,7 @@
     <string name="wowo_state_list_color_animation">State-List Color Animation</string>
     <string name="wowo_rotation_animation">Rotation Animation</string>
     <string name="wowo_path_animation">Path Animation</string>
+    <string name="wowo_textview_textsize_animation">TextView TextSize Animation</string>
 
     <string name="app_intro_example">APP Intro Example</string>
     <string name="cv_example">CV Example</string>

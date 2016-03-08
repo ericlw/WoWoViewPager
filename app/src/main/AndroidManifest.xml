@@ -53,6 +53,9 @@
         <activity
             android:name=".CVExampleActivity"
             android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name=".WoWoTextViewTextSizeAnimationActivity"
+            android:theme="@style/ShowAppTheme" />
     </application>
 
 </manifest>

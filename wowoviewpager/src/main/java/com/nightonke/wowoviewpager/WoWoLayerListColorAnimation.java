@@ -15,14 +15,6 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
 
 /**
  * animation to change the color of layer-list-drawable of view
- * notice that the background of the view must be:
- *
- * <?xml version="1.0" encoding="utf-8"?>
- * <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
- *     <item .../>
- *     <item .../>
- * </layer-list>
- *
  */
 public class WoWoLayerListColorAnimation extends PageAnimation {
 

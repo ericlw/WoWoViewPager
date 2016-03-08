@@ -17,14 +17,6 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
 
 /**
  * animation to change the color of state-list-drawable of view
- * notice that the background of the view must be:
- *
- * <?xml version="1.0" encoding="utf-8"?>
- * <selector xmlns:android="http://schemas.android.com/apk/res/android">
- *     <item .../>
- *     <item .../>
- * </selector>
- *
  */
 public class WoWoStateListColorAnimation extends PageAnimation {
 

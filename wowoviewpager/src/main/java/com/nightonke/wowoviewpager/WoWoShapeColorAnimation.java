@@ -13,14 +13,6 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
 
 /**
  * animation to change the color of shape-drawable of view
- * notice that the background of the view must be:
- *
- * <?xml version="1.0" encoding="utf-8"?>
- * <shape xmlns:android="http://schemas.android.com/apk/res/android"
- *         android:shape="oval"  >
- *     <solid android:color="@color/red"/>
- * </shape>
- *
  */
 public class WoWoShapeColorAnimation extends PageAnimation {
 

@@ -57,6 +57,9 @@ public class SetEaseTypeActivity extends AppCompatActivity
             case "WoWoRotationAnimation":
                 intent = new Intent(this, WoWoRotationAnimationActivity.class);
                 break;
+            case "WoWoTextViewTextSizeAnimation":
+                intent = new Intent(this, WoWoTextViewTextSizeAnimationActivity.class);
+                break;
             case "WoWoPathAnimation":
                 intent = new Intent(this, WoWoPathAnimationActivity.class);
                 break;

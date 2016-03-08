@@ -99,6 +99,13 @@
             android:text="@string/cv_example"
             />
 
+        <Button
+            android:id="@+id/wowo_textview_textsize_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wowo_textview_textsize_animation"
+            />
+
     </LinearLayout>
 
 </ScrollView>

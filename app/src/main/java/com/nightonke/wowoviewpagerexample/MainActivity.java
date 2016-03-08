@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.wowo_path_animation).setOnClickListener(this);
         findViewById(R.id.app_intro_example).setOnClickListener(this);
         findViewById(R.id.cv_example).setOnClickListener(this);
+        findViewById(R.id.wowo_textview_textsize_animation).setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.wowo_path_animation:
                 intent.putExtra("AnimationType", "WoWoPathAnimation");
+                break;
+            case R.id.wowo_textview_textsize_animation:
+                intent.putExtra("AnimationType", "WoWoTextViewTextSizeAnimation");
                 break;
             case R.id.app_intro_example:
                 startActivity(new Intent(this, AppIntroExampleActivity.class));
