@@ -13,7 +13,14 @@ Just like rewinding time.
 
 # Demo
 There is a demo for the current animations that WoWoViewPager supports. 
-And there are App intros example and CV example(the above gifs) in the demo. 
+And there are App intros example and CV example(the above gifs) in the demo.  
+![WoWo V1.0.1](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.png)  
+Or by link:  
+[WoWo V1.0.1 in Github](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.apk?raw=true)  
+[WoWo V1.0.1 in Fir](http://fir.im/wowoviewpager)  
+![Demo Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_animation.png) 
+![Demo Ease Type](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_ease_type.png)  
+You can try every animation and ease type that WoWoViewPager supports.   
 
 # Animations Guide
 
