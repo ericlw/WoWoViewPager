@@ -45,7 +45,7 @@ You can try every animation and ease type that WoWoViewPager supports.
 
 ### Animation Types
 1. [Ease](https://github.com/Nightonke/WoWoViewPager#ease)
-2. [RGB & HSV](https://github.com/Nightonke/WoWoViewPager#rgb-&-hsv)
+2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)
 
 # Animations Usage  
 
@@ -106,7 +106,7 @@ animation.addPageAnimaition(new WoWoTranslationAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 As you can see, the code above helps to make part of effect in the above gif(from page 1 to page 3, 2 translation animations totally). 
-For more codes about translation animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTranslationAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTranslationAnimationActivity.java).  
 
 #### Scale Animation  
 Scale animation helps to scale a view.  
@@ -147,7 +147,7 @@ animation.addPageAnimaition(new WoWoScaleAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 You can combine several animations to create a complex animation. For example, you can create 2 translation animations to make a polyline. Let's see the code above. From offset 0 to offset 0.5 starting from page 3, the width of the view doubles. And then, the height of the view doubles from offset 0.5 to offset 1. 
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoScaleAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoScaleAnimationActivity.java).  
 
 #### Alpha Animation  
 Alpha animation helps to change the opacity of the view, making fading or appearing effects.  
@@ -187,7 +187,7 @@ animation.addPageAnimaition(new WoWoAlphaAnimation(
         useSameEaseTypeBack));
 wowoViewPager.addAnimation(animation);
 ```
-That's quite easy to understand. For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoAlphaAnimationActivity.java).  
+That's quite easy to understand. For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoAlphaAnimationActivity.java).  
 
 #### Rotation Animation  
 Rotation animation helps to rotate a view.  
@@ -238,7 +238,7 @@ wowoViewPager.addAnimation(animation);
 ```
 The code above will cause the view upside down. 
 Notice that in the above gif, the pivot of the 2 textview are different. 
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoRotationAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoRotationAnimationActivity.java).  
 
 ### Font Size Animation  
 #### TextView Size Animation  
@@ -278,7 +278,7 @@ animation.addPageAnimaition(new WoWoTextViewSizeAnimation(
         useSameEaseTypeBack));
 wowoViewPager.addAnimation(animation);
 ```
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java).  
 
 ### Color Animations
 
@@ -319,7 +319,7 @@ animation.addPageAnimaition(new WoWoBackgroundColorAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 Notice that background color animation can only do its job when the view has the setBackgroundColor() method. 
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoBackgroundColorAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoBackgroundColorAnimationActivity.java).  
 [What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-&-hsv)  
 
 #### TextView Color Animation
@@ -358,19 +358,230 @@ animation.addPageAnimaition(new WoWoTextViewColorAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 Notice that textview color animation can only do its job when the view is textview. 
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewColorAnimationActivity.java).  
-[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-&-hsv)  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewColorAnimationActivity.java).  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
 
 #### Shape Color Animation
+Shape color animation helps to change the shape-drawable background color of view.
+```java
+/**
+ *
+ * @param page                The shape-drawable color animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The shape-drawable color animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The shape-drawable color animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromColor           Original color
+ 
+ * @param targetColor         Target color
+ 
+ * @param colorChangeType     How to change the color. For more information, 
+                              please check the ColorChangeType.class
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoShapeColorAnimation(
+        0, 0f, 1f,
+        Color.parseColor("#ff0000"),
+        Color.parseColor("#00ff00"),
+        colorChangeType,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+Notice that shape-drawable color animation can only do its job when the background of view is shape-drawable.  
+Like this:  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"  >
+    <solid android:color="@color/red"/>
+</shape>
+```
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
+
 #### State-List Color Animation
+State-List color animation helps to change the state-list-drawable background color of view.
+```java
+/**
+ *
+ * @param page                The state-list-drawable color animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The state-list-drawable color animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The state-list-drawable color animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromColor           Original colors, corresponding to the items in xml
+ 
+ * @param targetColor         Target colors, corresponding to the items in xml
+ 
+ * @param colorChangeType     How to change the color. For more information, 
+                              please check the ColorChangeType.class
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoStateListColorAnimation(
+        0, 0f, 1f,
+        new int[]{Color.parseColor("#ff0000"), Color.parseColor("#ff0000"), Color.parseColor("#ff0000")},
+        new int[]{Color.parseColor("#00ff00"), Color.parseColor("#00ff00"), Color.parseColor("#00ff00")},
+        colorChangeType,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+And the corresponding drawable is:  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="true" >
+        <shape android:shape="rectangle"  >
+            <corners android:radius="10dp" />
+            <solid android:color="@color/red" />
+        </shape>
+    </item>
+    <item android:state_focused="true">
+        <shape android:shape="rectangle"  >
+            <corners android:radius="2dp" />
+            <solid android:color="@color/red"/>
+        </shape>
+    </item>
+    <item >
+        <shape android:shape="rectangle"  >
+            <corners android:radius="2dp" />
+            <solid android:color="@color/red"/>
+        </shape>
+    </item>
+</selector>
+```
+Notice that state-list-drawable color animation can only do its job when the background of view is state-list-drawable. 
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
+
 #### Layer-List Color Animation
+Layer-List color animation helps to change the layer-list-drawable background color of view.
+```java
+/**
+ *
+ * @param page                The layer-list-drawable color animation will start from 
+                              page(0, 1, ..., adapter.getCount() - 1)
+                              
+ * @param startOffset         The layer-list-drawable color animation will start from this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param endOffset           The layer-list-drawable color animation will end with this offset([0, 1]) 
+                              when swiping from page to page + 1
+                              
+ * @param fromColor           Original colors, corresponding to the items in xml
+ 
+ * @param targetColor         Target colors, corresponding to the items in xml
+ 
+ * @param colorChangeType     How to change the color. For more information, 
+                              please check the ColorChangeType.class
+ 
+ * @param easeType            Ease type, please check the ease type section
+ 
+ * @param useSameEaseTypeBack Whether use the same ease type to back
+ */
+ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
+animation.addPageAnimaition(new WoWoLayerListColorAnimation(
+        0, 0f, 1f,
+        new int[]{
+          Color.parseColor("#000000"), 
+          Color.parseColor("#ff0000"), 
+          Color.parseColor("#00ff00"), 
+          Color.parseColor("#00ff00"), 
+          Color.parseColor("#ff0000")},
+        new int[]{
+          Color.parseColor("#0000ff"), 
+          Color.parseColor("#00ff00"), 
+          Color.parseColor("#ff0000"), 
+          Color.parseColor("#ff0000"), 
+          Color.parseColor("#00ff00")},
+        colorChangeType,
+        easeType,
+        useSameEaseTypeBack));
+wowoViewPager.addAnimation(animation);
+```
+And the corresponding drawable is:  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item1"
+        android:top="0dp" android:left="0dp" android:bottom="0dp" android:right="0dp">
+        <shape android:shape="rectangle">
+            <size android:width="200dp"
+                android:height="200dp"/>
+            <solid android:color="@color/black"/>
+        </shape>
+    </item>
+
+    <item
+        android:id="@+id/item2"
+        android:top="20dp" android:left="20dp" android:bottom="100dp" android:right="100dp">
+        <shape android:shape="rectangle">
+            <size android:width="80dp"
+                android:height="80dp"/>
+            <solid android:color="@color/red"/>
+        </shape>
+    </item>
+    
+    <item
+        android:id="@+id/item3"
+        android:top="20dp" android:left="100dp" android:bottom="100dp" android:right="20dp">
+        <shape android:shape="rectangle">
+            <size android:width="80dp"
+                android:height="80dp"/>
+            <solid android:color="@color/green"/>
+        </shape>
+    </item>
+
+    <item
+        android:id="@+id/item4"
+        android:top="100dp" android:left="20dp" android:bottom="20dp" android:right="100dp">
+        <shape android:shape="rectangle">
+            <size android:width="80dp"
+                android:height="80dp"/>
+            <solid android:color="@color/green"/>
+        </shape>
+    </item>
+    
+    <item
+        android:id="@+id/item5"
+        android:top="100dp" android:left="100dp" android:bottom="20dp" android:right="20dp">
+        <shape android:shape="rectangle">
+            <size android:width="80dp"
+                android:height="80dp"/>
+            <solid android:color="@color/red"/>
+        </shape>
+    </item>
+</layer-list>
+```
+Notice that layer-list-drawable color animation can only do its job when the background of view is layer-list-drawable. 
+For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoLayerListColorAnimationActivity.java).  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
 
 ### Path Animation
 #### Path Animation
 
 # Ease
 
-# RGB & HSV
+# RGB or HSV
 All the color changing animation has 2 types, RGB and HSV(Hue [0 .. 360), Saturation [0...1] and Value [0...1] If hsv values are out of range, they are pinned). 
 The HSV changing type may looks more comfortable in nature. 
 For instance, to change red to green, in HSV, it will be red->yellow->green. 
