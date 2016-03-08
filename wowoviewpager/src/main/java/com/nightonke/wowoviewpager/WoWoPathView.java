@@ -21,8 +21,8 @@ import android.view.View;
 /**
  * this view helps to create a path animation
  * including a image as its head
- *
  */
+
 public class WoWoPathView extends View {
 
     private Paint mPaint;
@@ -149,7 +149,9 @@ public class WoWoPathView extends View {
             mMatrix.reset();
             float degrees = (float) (Math.atan2(mBitmapTan[1], mBitmapTan[0]) * 180.0 / Math.PI);
             mMatrix.postRotate(degrees, mBitmapOffsetX, mBitmapOffsetY);
-            mMatrix.postTranslate(mBitmapPosition[0] - mBitmapOffsetX, mBitmapPosition[1] - mBitmapOffsetY);
+            mMatrix.postTranslate(
+                    mBitmapPosition[0] - mBitmapOffsetX,
+                    mBitmapPosition[1] - mBitmapOffsetY);
 
             canvas.drawBitmap(mBitmap, mMatrix, null);
         }

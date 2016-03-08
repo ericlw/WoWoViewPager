@@ -60,6 +60,10 @@ public class WoWoViewPager extends ViewPager {
         return scrollDuration;
     }
 
+    /**
+     * set the duration of swiping in ms
+     * @param scrollDuration duration in ms
+     */
     public void setScrollDuration(int scrollDuration) {
         this.scrollDuration = scrollDuration;
         try {

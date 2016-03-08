@@ -21,7 +21,26 @@ public class WoWoTextViewSizeAnimation extends PageAnimation {
     private float targetSize;
     private float fromSize;
 
-    public WoWoTextViewSizeAnimation(int page, float startOffset, float endOffset, float fromSize, float targetSize, EaseType easeType, boolean useSameEaseTypeBack) {
+    /**
+     *
+     * @param page animation starting page
+     * @param startOffset animation starting offset
+     * @param endOffset animation ending offset
+     * @param fromSize original text size in sp
+     * @param targetSize target text size in sp
+     * @param easeType ease type.
+     *                 For more information, please check the EaseType.class
+     * @param useSameEaseTypeBack whether use the same ease type to back
+     */
+    public WoWoTextViewSizeAnimation(
+            int page,
+            float startOffset,
+            float endOffset,
+            float fromSize,
+            float targetSize,
+            EaseType easeType,
+            boolean useSameEaseTypeBack) {
+
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -39,6 +58,10 @@ public class WoWoTextViewSizeAnimation extends PageAnimation {
     @Override
     public void play(View onView, float positionOffset) {
 
+        // if the positionOffset is less than the starting text size,
+        // we should set onView to starting text size
+        // otherwise there may be offsets between starting text size and actually text size
+        // if the last time we do this, just return
         if (positionOffset <= getStartOffset()) {
             if (lastTimeIsLess) return;
             if (onView instanceof TextView) {
@@ -50,9 +73,9 @@ public class WoWoTextViewSizeAnimation extends PageAnimation {
         lastTimeIsLess = false;
 
         if (positionOffset >= getEndOffset()) {
-            // if the positionOffset exceeds the endOffset,
-            // we should set onView to target alpha
-            // otherwise there may be offsets between target alpha and actually alpha
+            // if the positionOffset exceeds the starting text size,
+            // we should set onView to target text size
+            // otherwise there may be offsets between target text size and actually text size
             if (lastTimeIsExceed) return;
             // if the last time we do this, just return
             if (onView instanceof TextView) {

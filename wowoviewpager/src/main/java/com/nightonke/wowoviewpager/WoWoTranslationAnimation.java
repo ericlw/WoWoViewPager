@@ -1,6 +1,5 @@
 package com.nightonke.wowoviewpager;
 
-import android.util.Log;
 import android.view.View;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
@@ -22,11 +21,34 @@ public class WoWoTranslationAnimation extends PageAnimation {
     private float fromX;
     private float fromY;
 
+    /**
+     *
+     * @param page animation starting page
+     * @param startOffset animation starting offset
+     * @param endOffset animation ending offset
+     * @param fromX the starting horizontal position of this view relative to its left position,
+     *              in pixels.
+     * @param fromY the starting vertical position of this view relative to its top position,
+     *              in pixels.
+     * @param targetX the ending horizontal position of this view relative to its left position,
+     *              in pixels.
+     * @param targetY the ending vertical position of this view relative to its top position,
+     *              in pixels.
+     * @param easeType ease type.
+     *                 For more information, please check the EaseType.class
+     * @param useSameEaseTypeBack whether use the same ease type to back
+     */
     public WoWoTranslationAnimation(
-            int page, float startOffset, float endOffset,
-            float fromX, float fromY,
-            float targetX, float targetY,
-            EaseType easeType, boolean useSameEaseTypeBack) {
+            int page,
+            float startOffset,
+            float endOffset,
+            float fromX,
+            float fromY,
+            float targetX,
+            float targetY,
+            EaseType easeType,
+            boolean useSameEaseTypeBack) {
+
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -39,25 +61,18 @@ public class WoWoTranslationAnimation extends PageAnimation {
         this.fromY = fromY;
     }
 
-    /**
-     * every pageAnimation has extreme location of X and Y
-     * we have to reset the extreme to prevent the offset while swiping quickly
-     */
-    private float extremeY = -1;
-    private boolean extremeYIsSet = false;
-
-    private float extremeX = -1;
-    private boolean extremeXIsSet = false;
-
     private float lastPositionOffset = -1;
 
-    private boolean firstTime = true;
     private boolean lastTimeIsExceed = false;
     private boolean lastTimeIsLess = false;
 
     @Override
     public void play(View onView, float positionOffset) {
 
+        // if the positionOffset is less than the start offset,
+        // we should set onView to start position
+        // otherwise there may be offsets between targetPosition and actuallyPosition
+        // notice that if the last time we have done this, just return
         if (positionOffset <= getStartOffset()) {
             if (lastTimeIsLess) return;
             onView.setTranslationX(fromX);
@@ -68,12 +83,12 @@ public class WoWoTranslationAnimation extends PageAnimation {
         }
         lastTimeIsLess = false;
 
+        // if the positionOffset exceeds the endOffset,
+        // we should set onView to target position
+        // otherwise there may be offsets between target position and actually position
+        // notice that if the last time we have done this, just return
         if (positionOffset >= getEndOffset()) {
-            // if the positionOffset exceeds the endOffset,
-            // we should set onView to targetPosition
-            // otherwise there may be offsets between targetPosition and actuallyPosition
             if (lastTimeIsExceed) return;
-            // if the last time we do this, just return
             onView.setTranslationX(targetX + fromX);
             onView.setTranslationY(targetY + fromY);
             onView.requestLayout();

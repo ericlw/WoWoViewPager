@@ -9,14 +9,30 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
  */
 
 /**
- * animation to change the alpha of view
+ * animation to change the WoWoPathView
  */
+
 public class WoWoPathAnimation extends PageAnimation {
 
     private EaseType easeType;
     private boolean useSameEaseTypeBack = true;
 
-    public WoWoPathAnimation(int page, float startOffset, float endOffset, EaseType easeType, boolean useSameEaseTypeBack) {
+    /**
+     *
+     * @param page animation starting page
+     * @param startOffset animation starting offset
+     * @param endOffset animation ending offset
+     * @param easeType ease type.
+     *                 For more information, please check the EaseType.class
+     * @param useSameEaseTypeBack whether use the same ease type to back
+     */
+    public WoWoPathAnimation(
+            int page,
+            float startOffset,
+            float endOffset,
+            EaseType easeType,
+            boolean useSameEaseTypeBack) {
+
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -25,31 +41,35 @@ public class WoWoPathAnimation extends PageAnimation {
         this.useSameEaseTypeBack = useSameEaseTypeBack;
     }
 
-    /**
-     * every pageAnimation has extreme alpha
-     * we have to reset the extreme to prevent the offset of alpha
-     */
-    private float extremeAlpha = -1;
-    private boolean extremeAlphaIsSet = false;
-
     private float lastPositionOffset = -1;
 
     private boolean firstTime = true;
     private boolean lastTimeIsExceed = false;
+    private boolean lastTimeIsLess = false;
 
     @Override
     public void play(View onView, float positionOffset) {
 
-        if (positionOffset < getStartOffset()) {
+        // if the positionOffset is less than the starting percent,
+        // we should set onView to starting percent
+        // otherwise there may be offsets between starting percent and actually percent
+        // if the last time we do this, just return
+        if (positionOffset <= getStartOffset()) {
+            if (lastTimeIsLess) return;
+            if (onView instanceof WoWoPathView) {
+                ((WoWoPathView)onView).setPercentage(0);
+            }
+            lastTimeIsLess = true;
             return;
         }
+        lastTimeIsLess = false;
 
+        // if the positionOffset exceeds the end percent,
+        // we should set onView to target percent
+        // otherwise there may be offsets between target alpha and actually alpha
+        // if the last time we do this, just return
         if (positionOffset >= getEndOffset()) {
-            // if the positionOffset exceeds the endOffset,
-            // we should set onView to target alpha
-            // otherwise there may be offsets between target alpha and actually alpha
             if (lastTimeIsExceed) return;
-            // if the last time we do this, just return
             if (onView instanceof WoWoPathView) {
                 ((WoWoPathView)onView).setPercentage(1);
             }

@@ -23,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="center"
-            android:text="NIGHTONKE"
             android:textStyle="bold"
             android:textSize="50sp"
             android:textColor="@color/white"

@@ -11,6 +11,10 @@ public enum ColorChangeType {
 
     private int type;
 
+    /**
+     * how to perform the process of changing color
+     * @param type
+     */
     ColorChangeType(int type) {
         this.type = type;
     }

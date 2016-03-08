@@ -30,7 +30,15 @@ public class WoWoAlphaAnimation extends PageAnimation {
      * @param easeType ease type, for more information, please check the EaseType class
      * @param useSameEaseTypeBack whether use same ease type to go back
      */
-    public WoWoAlphaAnimation(int page, float startOffset, float endOffset, float fromAlpha, float targetAlpha, EaseType easeType, boolean useSameEaseTypeBack) {
+    public WoWoAlphaAnimation(
+            int page,
+            float startOffset,
+            float endOffset,
+            float fromAlpha,
+            float targetAlpha,
+            EaseType easeType,
+            boolean useSameEaseTypeBack) {
+
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -43,7 +51,6 @@ public class WoWoAlphaAnimation extends PageAnimation {
 
     private float lastPositionOffset = -1;
 
-    private boolean firstTime = true;
     private boolean lastTimeIsExceed = false;
     private boolean lastTimeIsLess = false;
 

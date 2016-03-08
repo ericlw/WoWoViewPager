@@ -1,6 +1,5 @@
 package com.nightonke.wowoviewpager;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -23,7 +22,25 @@ public class WoWoScaleAnimation extends PageAnimation {
     private float fromWidth;
     private float fromHeight;
 
-    public WoWoScaleAnimation(int page, float startOffset, float endOffset, float targetScaleX, float targetScaleY, EaseType easeType, boolean useSameEaseTypeBack) {
+    /**
+     *
+     * @param page animation will start from this page
+     * @param startOffset animation will start from this offset
+     * @param endOffset animation will end at this offset
+     * @param targetScaleX target scale x = target x / original y
+     * @param targetScaleY target scale y = target y / original y
+     * @param easeType ease type, for more information, please check the EaseType class
+     * @param useSameEaseTypeBack whether use same ease type to go back
+     */
+    public WoWoScaleAnimation(
+            int page,
+            float startOffset,
+            float endOffset,
+            float targetScaleX,
+            float targetScaleY,
+            EaseType easeType,
+            boolean useSameEaseTypeBack) {
+
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);

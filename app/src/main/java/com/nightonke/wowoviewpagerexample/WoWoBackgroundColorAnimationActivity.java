@@ -71,9 +71,16 @@ public class WoWoBackgroundColorAnimationActivity extends AppCompatActivity {
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoBackgroundColorAnimation(
-                3, 0f, 1f,
+                3, 0f, 0.5f,
                 Color.parseColor("#ff0000"),
                 Color.parseColor("#000000"),
+                colorChangeType,
+                easeType,
+                useSameEaseTypeBack));
+        animation.addPageAnimaition(new WoWoBackgroundColorAnimation(
+                3, 0.5f, 1f,
+                Color.parseColor("#000000"),
+                Color.parseColor("#ff0000"),
                 colorChangeType,
                 easeType,
                 useSameEaseTypeBack));

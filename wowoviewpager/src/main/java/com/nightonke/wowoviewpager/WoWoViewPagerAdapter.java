@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -119,7 +118,8 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
             LinearLayout view = new LinearLayout(getActivity());
             view.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -152,6 +152,10 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         return colorRes;
     }
 
+    /**
+     * set resource of color of fragments
+     * @param colorRes resource of color of fragments
+     */
     public void setColorRes(int colorRes) {
         this.colorRes = colorRes;
         colorsRes = null;
@@ -163,6 +167,10 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         return color;
     }
 
+    /**
+     * set color of fragments
+     * @param color color of fragments
+     */
     public void setColor(Integer color) {
         this.color = color;
         colorRes = null;
@@ -170,6 +178,10 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         colorsRes = null;
     }
 
+    /**
+     * set resources of colors of fragments
+     * @return resources of colors of fragments
+     */
     public ArrayList<Integer> getColorsRes() {
         return colorsRes;
     }
@@ -178,6 +190,10 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         setColorsRes(new ArrayList<>(Arrays.asList(colorsRes)));
     }
 
+    /**
+     * set resources of colors of fragments
+     * @param colorsRes resources of colors of fragments
+     */
     public void setColorsRes(ArrayList<Integer> colorsRes) {
         this.colorsRes = colorsRes;
         colors = null;
@@ -189,10 +205,18 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
         return colors;
     }
 
+    /**
+     * set colors of fragments
+     * @param colors colors
+     */
     public void setColors(Integer[] colors) {
         setColors(new ArrayList<>(Arrays.asList(colors)));
     }
 
+    /**
+     * set colors of fragments
+     * @param colors colors
+     */
     public void setColors(ArrayList<Integer> colors) {
         this.colors = colors;
         colorRes = null;

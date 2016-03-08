@@ -48,11 +48,11 @@ public class WoWoTranslationAnimationActivity extends AppCompatActivity {
         wowo.setAdapter(adapter);
         setPageTV(wowo);
 
-        ViewAnimation animation = new ViewAnimation(findViewById(R.id.android));
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
         animation.addPageAnimaition(new WoWoTranslationAnimation(
                 0, 0f, 1f,
-                findViewById(R.id.android).getTranslationX(),
-                findViewById(R.id.android).getTranslationY(),
+                findViewById(R.id.test).getTranslationX(),
+                findViewById(R.id.test).getTranslationY(),
                 -screenW / 2 + WoWoUtil.dp2px(40, this),
                 -screenH / 2 + WoWoUtil.dp2px(40, this),
                 easeType,

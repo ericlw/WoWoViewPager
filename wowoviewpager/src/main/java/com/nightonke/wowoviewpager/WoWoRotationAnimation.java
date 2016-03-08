@@ -1,6 +1,5 @@
 package com.nightonke.wowoviewpager;
 
-import android.util.Log;
 import android.view.View;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
@@ -12,6 +11,7 @@ import com.nightonke.wowoviewpager.Eases.EaseType;
 /**
  * animation to change the rotate angle of view
  */
+
 public class WoWoRotationAnimation extends PageAnimation {
 
     private EaseType easeType;
@@ -30,11 +30,35 @@ public class WoWoRotationAnimation extends PageAnimation {
     private float fromY = -1;
     private float fromZ = -1;
 
+    /**
+     *        _ _ _ _ _ _ _
+     *      /|    x
+     *     / |
+     *    /  |y
+     *   /   |
+     *  /z   |
+     * /     |
+     *
+     * @param page animation will start from this page
+     * @param startOffset animation will start from this offset
+     * @param endOffset animation will end at this offset
+     * @param pivotX the x value of the pivot of this rotation animation
+     * @param pivotY the y value of the pivot of this rotation animation
+     * @param targetX the target degree on x axis
+     * @param targetY the target degree on y axis
+     * @param targetZ the target degree on z axis
+     * @param easeType ease type, for more information, please check the EaseType class
+     * @param useSameEaseTypeBack whether use same ease type to go back
+     */
     public WoWoRotationAnimation(
             int page,
-            float startOffset, float endOffset,
-            float pivotX, float pivotY,
-            float targetX, float targetY, float targetZ,
+            float startOffset,
+            float endOffset,
+            float pivotX,
+            float pivotY,
+            float targetX,
+            float targetY,
+            float targetZ,
             EaseType easeType,
             boolean useSameEaseTypeBack) {
 

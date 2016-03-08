@@ -411,6 +411,7 @@ public class AppIntroExampleActivity extends AppCompatActivity {
                 true));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
                 2, 0, 1,
+                1,
                 0,
                 EaseType.Linear,
                 true

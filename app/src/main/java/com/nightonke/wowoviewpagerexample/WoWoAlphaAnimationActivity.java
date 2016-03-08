@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.nightonke.wowoviewpager.Eases.EaseType;
 import com.nightonke.wowoviewpager.ViewAnimation;
 import com.nightonke.wowoviewpager.WoWoAlphaAnimation;
-import com.nightonke.wowoviewpager.WoWoScaleAnimation;
 import com.nightonke.wowoviewpager.WoWoViewPager;
 import com.nightonke.wowoviewpager.WoWoViewPagerAdapter;
 
@@ -40,34 +39,40 @@ public class WoWoAlphaAnimationActivity extends AppCompatActivity {
         wowo.setAdapter(adapter);
         setPageTV(wowo);
 
-        ViewAnimation animation = new ViewAnimation(findViewById(R.id.android));
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
                 0, 0f, 1f,
+                1,
                 0.5f,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
                 1, 0f, 1f,
+                0.5f,
                 1f,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
                 2, 0f, 0.5f,
+                1,
                 0f,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
                 2, 0.5f, 1f,
+                0,
                 1f,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
                 3, 0f, 0.5f,
-                0.5f,
+                1,
+                0.3f,
                 easeType,
                 useSameEaseTypeBack));
         animation.addPageAnimaition(new WoWoAlphaAnimation(
                 3, 0.5f, 1f,
+                0.3f,
                 1f,
                 easeType,
                 useSameEaseTypeBack));

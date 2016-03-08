@@ -7,6 +7,7 @@ import android.widget.Scroller;
 /**
  * Created by Weiping on 2016/3/7.
  */
+
 public class WoWoScroller extends Scroller {
 
     private int mDuration = 5000;

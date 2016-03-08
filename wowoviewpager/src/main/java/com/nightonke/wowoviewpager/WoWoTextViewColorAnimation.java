@@ -36,105 +36,29 @@ public class WoWoTextViewColorAnimation extends PageAnimation {
     private int fromB = -1;
     private float[] fromHSV = new float[3];
 
-    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
+    /**
+     *
+     * @param page animation starting page
+     * @param startOffset animation starting offset
+     * @param endOffset animation ending offset
+     * @param fromColor original color
+     * @param targetColor target color
+     * @param colorChangeType how to change the color.
+     *                        For more information, please check the ColorChangeType.class
+     * @param easeType ease type.
+     *                 For more information, please check the EaseType.class
+     * @param useSameEaseTypeBack whether use the same ease type to back
+     */
+    public WoWoTextViewColorAnimation(
+            int page,
+            float startOffset,
+            float endOffset,
+            int fromColor,
+            int targetColor,
+            ColorChangeType colorChangeType,
+            EaseType easeType,
+            boolean useSameEaseTypeBack) {
 
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = true;
-        this.fromColor = fromColor;
-        this.targetColor = targetColor;
-        setARGBandHSV();
-
-        this.colorChangeType = colorChangeType;
-    }
-
-    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = true;
-        this.fromColor = fromColor;
-        this.targetColor = targetColor;
-        setARGBandHSV();
-
-        this.colorChangeType = colorChangeType;
-    }
-
-    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.fromColor = fromColor;
-        this.targetColor = targetColor;
-        setARGBandHSV();
-
-        this.colorChangeType = colorChangeType;
-    }
-
-    public WoWoTextViewColorAnimation(int page, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(0);
-        setEndOffset(1);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.fromColor = fromColor;
-        this.targetColor = targetColor;
-        setARGBandHSV();
-
-        this.colorChangeType = colorChangeType;
-    }
-
-    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = true;
-        this.fromColor = fromColor;
-        this.targetColor = targetColor;
-        setARGBandHSV();
-
-        this.colorChangeType = colorChangeType;
-    }
-
-    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = easeType;
-        this.useSameEaseTypeBack = true;
-        this.fromColor = fromColor;
-        this.targetColor = targetColor;
-        setARGBandHSV();
-
-        this.colorChangeType = colorChangeType;
-    }
-
-    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, boolean useSameEaseTypeBack) {
-        setPage(page);
-        setStartOffset(startOffset);
-        setEndOffset(endOffset);
-
-        this.easeType = EaseType.Linear;
-        this.useSameEaseTypeBack = useSameEaseTypeBack;
-        this.fromColor = fromColor;
-        this.targetColor = targetColor;
-        setARGBandHSV();
-
-        this.colorChangeType = colorChangeType;
-    }
-
-    public WoWoTextViewColorAnimation(int page, float startOffset, float endOffset, int fromColor, int targetColor, ColorChangeType colorChangeType, EaseType easeType, boolean useSameEaseTypeBack) {
         setPage(page);
         setStartOffset(startOffset);
         setEndOffset(endOffset);
@@ -151,13 +75,24 @@ public class WoWoTextViewColorAnimation extends PageAnimation {
     private float lastPositionOffset = -1;
 
     private boolean lastTimeIsExceed = false;
+    private boolean lastTimeIsLess = false;
 
     @Override
     public void play(View onView, float positionOffset) {
 
-        if (positionOffset < getStartOffset()) {
+        // if the positionOffset is less than the starting color,
+        // we should set onView to starting color
+        // otherwise there may be offsets between starting color and actually color
+        // if the last time we do this, just return
+        if (positionOffset <= getStartOffset()) {
+            if (lastTimeIsLess) return;
+            if (onView instanceof TextView) {
+                ((TextView) onView).setTextColor(fromColor);
+            }
+            lastTimeIsLess = true;
             return;
         }
+        lastTimeIsLess = false;
 
         if (positionOffset >= getEndOffset()) {
             // if the positionOffset exceeds the endOffset,

@@ -50,6 +50,10 @@ public enum EaseType {
 
     private Class easingType;
 
+    /**
+     * ease animation helps to make the movement more real
+     * @param easingType
+     */
     EaseType(Class easingType) {
         this.easingType = easingType;
     }

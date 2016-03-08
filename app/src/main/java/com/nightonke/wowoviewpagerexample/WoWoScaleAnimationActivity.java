@@ -39,7 +39,7 @@ public class WoWoScaleAnimationActivity extends AppCompatActivity {
         wowo.setAdapter(adapter);
         setPageTV(wowo);
 
-        ViewAnimation animation = new ViewAnimation(findViewById(R.id.android));
+        ViewAnimation animation = new ViewAnimation(findViewById(R.id.test));
         animation.addPageAnimaition(new WoWoScaleAnimation(
                 0, 0f, 1f,
                 0.5f,

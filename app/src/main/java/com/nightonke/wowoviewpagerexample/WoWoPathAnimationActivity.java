@@ -5,15 +5,18 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.nightonke.wowoviewpager.Eases.EaseType;
 import com.nightonke.wowoviewpager.ViewAnimation;
+import com.nightonke.wowoviewpager.WoWoAlphaAnimation;
 import com.nightonke.wowoviewpager.WoWoPathAnimation;
 import com.nightonke.wowoviewpager.WoWoPathView;
 import com.nightonke.wowoviewpager.WoWoRotationAnimation;
+import com.nightonke.wowoviewpager.WoWoTranslationAnimation;
 import com.nightonke.wowoviewpager.WoWoUtil;
 import com.nightonke.wowoviewpager.WoWoViewPager;
 import com.nightonke.wowoviewpager.WoWoViewPagerAdapter;
@@ -31,7 +34,9 @@ public class WoWoPathAnimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_wowo_path_animation);
 
@@ -40,49 +45,52 @@ public class WoWoPathAnimationActivity extends AppCompatActivity {
         wowo = (WoWoViewPager)findViewById(R.id.wowo_viewpager);
         adapter = new WoWoViewPagerAdapter(getSupportFragmentManager());
         adapter.setFragmentsNumber(2);
-        adapter.setColorRes(R.color.light_blue);
+        adapter.setColorsRes(new Integer[]{
+                R.color.light_blue,
+                R.color.my_pink});
         wowo.setAdapter(adapter);
         setPageTV(wowo);
     }
+
+    int screenW = 0;
+    int screenH = 0;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
 
+        screenW = WoWoUtil.getScreenWidth(this);
+        screenH = WoWoUtil.getScreenHeight(this);
+
+        setPath();
+    }
+
+    private void setPath() {
         WoWoPathView pathView = (WoWoPathView)findViewById(R.id.pathview);
+        ViewGroup.LayoutParams layoutParams = pathView.getLayoutParams();
+        layoutParams.height = screenH;
+        layoutParams.width = screenW + 200;
+        pathView.setLayoutParams(layoutParams);
 
-        int screenW = WoWoUtil.getScreenWidth(this);
-        int screenH = WoWoUtil.getScreenHeight(this);
-
-        int xoff = 0;
-        int yoff = screenH / 2 - 303 - 80;
+        int xoff = -300;
+        int yoff = screenH - 616 - 300;
+        float xScale = 1.5f;
+        float yScale = 1;
 
         Path path = new Path();
-        path.moveTo(screenW + 300 + xoff, 303 + yoff);
+        path.moveTo(xScale * (565 + xoff), screenH + yoff);
         path.cubicTo(
-                557 + xoff, 385 + yoff, 412 + xoff, 409 + yoff, 348 + xoff, 398 + yoff);
+                xScale * (509 + xoff), yScale * (385 + yoff),
+                xScale * (144 + xoff), yScale * (272 + yoff),
+                xScale * (394 + xoff), yScale * (144 + yoff));
         path.cubicTo(
-                307 + xoff, 391 + yoff, 194 + xoff, 355 + yoff, 151 + xoff, 314 + yoff);
+                xScale * (477 + xoff), yScale * (99 + yoff),
+                xScale * (596 + xoff), yScale * (91 + yoff),
+                xScale * (697 + xoff), yScale * (128 + yoff));
         path.cubicTo(
-                132 + xoff, 296 + yoff, 111 + xoff, 260 + yoff, 108 + xoff, 210 + yoff);
-        path.cubicTo(
-                105 + xoff, 163 + yoff, 110 + xoff, 133 + yoff, 131 + xoff, 93 + yoff);
-        path.cubicTo(
-                146 + xoff, 64 + yoff, 162 + xoff, 50 + yoff, 201 + xoff, 27 + yoff);
-        path.cubicTo(
-                222 + xoff, 15 + yoff, 263 + xoff, 5 + yoff, 299 + xoff, 3 + yoff);
-        path.cubicTo(
-                346 + xoff, 1 + yoff, 411 + xoff, 1 + yoff, 449 + xoff, 14 + yoff);
-        path.cubicTo(
-                482 + xoff, 25 + yoff, 498 + xoff, 31 + yoff, 523 + xoff, 53 + yoff);
-        path.cubicTo(
-                550 + xoff, 77 + yoff, 574 + xoff, 102 + yoff, 581 + xoff, 133 + yoff);
-        path.cubicTo(
-                589 + xoff, 168 + yoff, 579 + xoff, 225 + yoff, 566 + xoff, 245 + yoff);
-        path.cubicTo(
-                548 + xoff, 272 + yoff, 514 + xoff, 308 + yoff, 469 + xoff, 324 + yoff);
-        path.cubicTo(
-                430 + xoff, 338 + yoff, 139 + xoff, 413 + yoff, -100 + xoff, 393 + yoff);
+                xScale * (850 + xoff), yScale * (189 + yoff),
+                xScale * (803 + xoff), yScale * (324 + yoff),
+                xScale * (66 + xoff), yScale * (307 + yoff));
 
         pathView.setPath(path);
         ViewAnimation animation = new ViewAnimation(pathView);
@@ -96,7 +104,8 @@ public class WoWoPathAnimationActivity extends AppCompatActivity {
     private void setPageTV(WoWoViewPager wowo) {
         wowo.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(int position, float positionOffset,
+                                       int positionOffsetPixels) {
 
             }
 
