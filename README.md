@@ -23,7 +23,7 @@ Just like rewinding time.
 3. [Alpha Animation](https://github.com/Nightonke/WoWoViewPager#alpha-animation)
 4. [Rotation Animation](https://github.com/Nightonke/WoWoViewPager#rotation-animation)
 
-#### Font Size Animation
+#### Font Size Animations
 1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager#textview-size-animation)
 
 #### Color Animations
@@ -33,7 +33,7 @@ Just like rewinding time.
 4. [State-List Color Animation](https://github.com/Nightonke/WoWoViewPager#state-list-color-animation)
 5. [Layer-List Color Animation](https://github.com/Nightonke/WoWoViewPager#layer-list-color-animation)
 
-#### Path Animation
+#### Path Animations
 1. [Path Animation](https://github.com/Nightonke/WoWoViewPager#path-animation)
 
 #### Animation Types
