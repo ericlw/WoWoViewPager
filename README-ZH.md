@@ -26,7 +26,7 @@ WoWo将动画和viewpager结合起来。
 4. [旋转动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#旋转动画)
 
 #### 文字大小动画
-1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#textView-size-animation)
+1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#textview-size-animation)
 
 #### 变色动画
 1. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#background-color-animation)
