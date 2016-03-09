@@ -11,7 +11,7 @@ WoWo将动画和viewpager结合起来。
 # 目录
 
 [English README](https://github.com/Nightonke/WoWoViewPager/blob/master/README.md)  
-[Gradle](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Gradle)  
+[Gradle](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#gradle)  
 [备注](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#备注)  
 [Demo](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Demo)  
 [版本](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#版本)  
@@ -26,21 +26,21 @@ WoWo将动画和viewpager结合起来。
 4. [旋转动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#旋转动画)
 
 #### 文字大小动画
-1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#TextView Size Animation)
+1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#textView-Size-Animation)
 
 #### 变色动画
-1. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Background Color Animation)
-2. [TextView Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#TextView Color Animation)
-3. [Shape Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Shape Color Animation)
-4. [State-List Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#State-List Color Animation)
-5. [Layer-List Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Layer-List Color Animation)
+1. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#background-color-animation)
+2. [TextView Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#textView-color-animation)
+3. [Shape Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#shape-color-animation)
+4. [State-List Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#state-list-color-animation)
+5. [Layer-List Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#layer-list-color-animation)
 
 #### 路径动画
 1. [路径动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#路径动画)
 
 #### 动画效果
 1. [缓动函数](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#缓动函数)
-2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#RGB-or-HSV)
+2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)
 
 # Gradle
 直接在你的module的build.gradle的dependencies中加入“compile 'com.nightonke:wowoviewpager:1.0.1'”这行即可。  
@@ -678,7 +678,7 @@ wowo.addAnimation(animation);
 ![Ease](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/ease.png)  
 当然你也可以不使用缓动函数，你可以在[这里](https://github.com/Nightonke/WoWoViewPager/blob/master/wowoviewpager/src/main/java/com/nightonke/wowoviewpager/Eases/EaseType.java).找到所有的缓动函数类型。  
 
-# RGB和HSV变色
+# RGB or HSV
 所有的变色动画都有两种变色效果，RGB和HSV。
 HSV是改变亮度等来实现变色，在自然界中看起来更加正常。
 比如，从红色变为绿色，在HSV中是红->黄->绿。
