@@ -11,38 +11,38 @@ WoWo将动画和viewpager结合起来。
 # 目录
 
 [English README](https://github.com/Nightonke/WoWoViewPager/blob/master/README.md)  
-[用Gradle快速使用WoWoViewPager](https://github.com/Nightonke/WoWoViewPager#gradle)  
-[备注](https://github.com/Nightonke/WoWoViewPager#note)  
-[Demo下载](https://github.com/Nightonke/WoWoViewPager#demo)  
-[版本](https://github.com/Nightonke/WoWoViewPager#versions)  
-[Todo](https://github.com/Nightonke/WoWoViewPager#todo)  
-[License](https://github.com/Nightonke/WoWoViewPager#license)  
+[用Gradle快速使用WoWoViewPager](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#用Gradle快速使用WoWoViewPager)  
+[备注](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#备注)  
+[Demo下载](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Demo下载)  
+[版本](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#版本)  
+[Todo](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#todo)  
+[License](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#license)  
 
 ### 动画用法
 #### 基本动画  
-1. [位移动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#translation-animation)
-2. [缩放动画](https://github.com/Nightonke/WoWoViewPager#scale-animation)
-3. [渐现、渐逝动画](https://github.com/Nightonke/WoWoViewPager#alpha-animation)
+1. [位移动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#位移动画)
+2. [缩放动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#缩放动画)
+3. [渐现、渐逝动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#渐现、渐逝动画)
 4. [旋转动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#旋转动画)
 
 #### 文字大小动画
-1. [TextView文字大小动画](https://github.com/Nightonke/WoWoViewPager#textview-size-animation)
+1. [TextView文字大小动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#TextView文字大小动画)
 
 #### 变色动画
-1. [Background变色动画](https://github.com/Nightonke/WoWoViewPager#background-color-animation)
-2. [TextView变色动画](https://github.com/Nightonke/WoWoViewPager#textview-color-animation)
-3. [Shape变色动画](https://github.com/Nightonke/WoWoViewPager#shape-color-animation)
-4. [State-List变色动画](https://github.com/Nightonke/WoWoViewPager#state-list-color-animation)
-5. [Layer-List变色动画](https://github.com/Nightonke/WoWoViewPager#layer-list-color-animation)
+1. [Background变色动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Background变色动画)
+2. [TextView变色动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#TextView变色动画)
+3. [Shape变色动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Shape变色动画)
+4. [State-List变色动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#State-List变色动画)
+5. [Layer-List变色动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Layer-List变色动画)
 
 #### 路径动画
-1. [路径动画](https://github.com/Nightonke/WoWoViewPager#path-animation)
+1. [路径动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#路径动画)
 
 #### 动画效果
-1. [缓动函数](https://github.com/Nightonke/WoWoViewPager#ease)
-2. [RGB和HSV变色](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)
+1. [缓动函数](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#缓动函数)
+2. [RGB和HSV变色](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#RGB和HSV变色)
 
-# Gradle
+# 用Gradle快速使用WoWoViewPager
 直接在你的module的build.gradle的dependencies中加入“compile 'com.nightonke:wowoviewpager:1.0.1'”这行即可。  
 ```
 dependencies {
@@ -52,11 +52,11 @@ dependencies {
 }
 ```
 
-# Note
+# 备注
 1. 感谢 [JazzHands](https://github.com/IFTTT/JazzHands) 带给我的灵感。  
 2. 更多的动画将会陆续加入。  
 
-# Demo
+# Demo下载
 你可以通过这个demo来查看所有WoWo支持的动画，并以不同的缓动效果和变色效果来查看动画效果。  
 你也可以在demo中找到App引导页例子和App简历例子。  
 ![WoWo V1.0.1](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.png)  
@@ -66,11 +66,11 @@ dependencies {
 ![Demo Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_animation.png) 
 ![Demo Ease Type](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_ease_type.png)  
 
-# Animations Usage  
+# 动画用法  
 
-### Basic Animations  
+### 基本动画  
 
-#### Translation Animation  
+#### 位移动画 
 位移动画可以让view动起来。  
 ![Translation animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/TranslationAnimation.gif)  
 ```java
@@ -261,8 +261,8 @@ wowoViewPager.addAnimation(animation);
 上述的代码将导致view上下颠倒，注意在gif中，两个textview的轴心是不一样的。  
 更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoRotationAnimationActivity.java).  
 
-### 
-#### TextView Size Animation  
+### 文字大小动画
+#### TextView文字大小动画  
 TextView size animation helps to change the font size of textview.  
 ```java
 /**
@@ -301,9 +301,9 @@ wowoViewPager.addAnimation(animation);
 ```
 For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java).  
 
-### Color Animations
+### 变色动画
 
-#### Background Color Animation
+#### Background变色动画
 Background color animation helps to change the color of background.  
 ![Background Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/BackgroundColorAnimation.gif)  
 ```java
@@ -341,9 +341,9 @@ wowoViewPager.addAnimation(animation);
 ```
 Notice that background color animation can only do its job when the view has the setBackgroundColor() method. 
 For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoBackgroundColorAnimationActivity.java).  
-[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-&-hsv)  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-&-hsv)  
 
-#### TextView Color Animation
+#### TextView变色动画
 TextView color animation helps to change the font color of textview only.  
 ```java
 /**
@@ -380,9 +380,9 @@ wowoViewPager.addAnimation(animation);
 ```
 Notice that textview color animation can only do its job when the view is textview. 
 For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewColorAnimationActivity.java).  
-[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)  
 
-#### Shape Color Animation
+#### Shape变色动画
 Shape color animation helps to change the shape-drawable background color of view.
 ```java
 /**
@@ -427,9 +427,9 @@ Like this:
 </shape>
 ```
 For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
-[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)  
 
-#### State-List Color Animation
+#### State-List变色动画
 State-List color animation helps to change the state-list-drawable background color of view.
 ```java
 /**
@@ -490,9 +490,9 @@ And the corresponding drawable is:
 ```
 Notice that state-list-drawable color animation can only do its job when the background of view is state-list-drawable. 
 For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
-[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)  
 
-#### Layer-List Color Animation
+#### Layer-List变色动画
 Layer-List color animation helps to change the layer-list-drawable background color of view.
 ```java
 /**
@@ -595,10 +595,10 @@ And the corresponding drawable is:
 ```
 Notice that layer-list-drawable color animation can only do its job when the background of view is layer-list-drawable. 
 For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoLayerListColorAnimationActivity.java).  
-[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
+[What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)  
 
-### Path Animation
-#### Path Animation
+### 路径动画
+#### 路径动画
 Path animation helps to draw a path. 
 And you can add an image to the head of the path like this:  
 ![Ease](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/PathAnimation.gif)  
@@ -673,22 +673,22 @@ animation.addPageAnimaition(new WoWoPathAnimation(
 wowo.addAnimation(animation);
 ```
 
-# Ease
+# 缓动函数
 To make the animations more lifesome, you can choose different ease type to play the animations.  
 ![Ease](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/ease.png)  
 Of course you can use linear function. 
 You can find all the ease enums [here](https://github.com/Nightonke/WoWoViewPager/blob/master/wowoviewpager/src/main/java/com/nightonke/wowoviewpager/Eases/EaseType.java).
 
-# RGB or HSV
+# RGB和HSV变色
 All the color changing animation has 2 types, RGB and HSV(Hue [0 .. 360), Saturation [0...1] and Value [0...1] If hsv values are out of range, they are pinned). 
 The HSV changing type may looks more comfortable in nature. 
 For instance, to change red to green, in HSV, it will be red->yellow->green. 
 In RGB, it will be red->some color between red and green->green. 
 But usually the RGB changing type is the good one. 
 Because HSV sometimes looks strange(my opinion). 
-You can see the performance of these 2 types in the gif of [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation).  
+You can see the performance of these 2 types in the gif of [Background Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#background-color-animation).  
 
-# Versions
+# 版本
 ### 1.0.1  
 First version for 11 animations.
 
