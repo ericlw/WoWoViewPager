@@ -9,7 +9,7 @@ Just like rewinding time.
 
 # Guide
 
-[中文文档](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md)
+[中文文档](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md)  
 [Gradle](https://github.com/Nightonke/WoWoViewPager#gradle)  
 [Note](https://github.com/Nightonke/WoWoViewPager#note)  
 [Demo](https://github.com/Nightonke/WoWoViewPager#demo)  
