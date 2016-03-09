@@ -7,6 +7,50 @@ WoWoViewPager combines animations and viewpager.
 When you are swiping viewpager, you are also controlling the frames of the animation. 
 Just like rewinding time. 
 
+# Guide
+
+[中文文档](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md)  
+[Gradle](https://github.com/Nightonke/WoWoViewPager#gradle)  
+[Note](https://github.com/Nightonke/WoWoViewPager#note)  
+[Demo](https://github.com/Nightonke/WoWoViewPager#demo)  
+[Versions](https://github.com/Nightonke/WoWoViewPager#versions)  
+[Todo](https://github.com/Nightonke/WoWoViewPager#todo)  
+[License](https://github.com/Nightonke/WoWoViewPager#license)  
+
+### Animations Usage
+#### Basic Animations  
+1. [Translation Animation](https://github.com/Nightonke/WoWoViewPager#translation-animation)
+2. [Scale Animation](https://github.com/Nightonke/WoWoViewPager#scale-animation)
+3. [Alpha Animation](https://github.com/Nightonke/WoWoViewPager#alpha-animation)
+4. [Rotation Animation](https://github.com/Nightonke/WoWoViewPager#rotation-animation)
+
+#### Font Size Animations
+1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager#textview-size-animation)
+
+#### Color Animations
+1. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation)
+2. [TextView Color Animation](https://github.com/Nightonke/WoWoViewPager#textview-color-animation)
+3. [Shape Color Animation](https://github.com/Nightonke/WoWoViewPager#shape-color-animation)
+4. [State-List Color Animation](https://github.com/Nightonke/WoWoViewPager#state-list-color-animation)
+5. [Layer-List Color Animation](https://github.com/Nightonke/WoWoViewPager#layer-list-color-animation)
+
+#### Path Animations
+1. [Path Animation](https://github.com/Nightonke/WoWoViewPager#path-animation)
+
+#### Animation Types
+1. [Ease](https://github.com/Nightonke/WoWoViewPager#ease)
+2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)
+
+# Gradle
+Just add the "compile 'com.nightonke:wowoviewpager:1.0.1'" in your build.gradle of your module.  
+```
+dependencies {
+    ...
+    compile 'com.nightonke:wowoviewpager:1.0.1'
+    ...
+}
+```
+
 # Note
 1. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration.
 2. I'll add more animations for WoWoViewPager.
@@ -21,31 +65,6 @@ Or by link:
 ![Demo Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_animation.png) 
 ![Demo Ease Type](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_ease_type.png)  
 You can try every animation and ease type that WoWoViewPager supports.   
-
-# Animations Guide
-
-### Basic Animations  
-1. [Translation Animation](https://github.com/Nightonke/WoWoViewPager#translation-animation)
-2. [Scale Animation](https://github.com/Nightonke/WoWoViewPager#scale-animation)
-3. [Alpha Animation](https://github.com/Nightonke/WoWoViewPager#alpha-animation)
-4. [Rotation Animation](https://github.com/Nightonke/WoWoViewPager#rotation-animation)
-
-### Font Size Animation
-1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager#textview-size-animation)
-
-### Color Animations
-1. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation)
-2. [TextView Color Animation](https://github.com/Nightonke/WoWoViewPager#textview-color-animation)
-3. [Shape Color Animation](https://github.com/Nightonke/WoWoViewPager#shape-color-animation)
-4. [State-List Color Animation](https://github.com/Nightonke/WoWoViewPager#state-list-color-animation)
-5. [Layer-List Color Animation](https://github.com/Nightonke/WoWoViewPager#layer-list-color-animation)
-
-### Path Animation
-1. [Path Animation](https://github.com/Nightonke/WoWoViewPager#path-animation)
-
-### Animation Types
-1. [Ease](https://github.com/Nightonke/WoWoViewPager#ease)
-2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)
 
 # Animations Usage  
 
@@ -578,8 +597,85 @@ For more codes about scale animation, please check the [code](https://github.com
 
 ### Path Animation
 #### Path Animation
+Path animation helps to draw a path. 
+And you can add an image to the head of the path like this:  
+![Ease](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/PathAnimation.gif)  
+All you need to do is:  
+##### Add this in xml:  
+```xml
+<com.nightonke.wowoviewpager.WoWoPathView
+    android:id="@+id/pathview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    app:pathColor="@color/white"
+    app:pathWidth="5"
+    app:headImageId="@drawable/airplane"
+    app:headImageWidth="240"
+    />
+```
+You can set the attributes in xml:  
+
+Attribute                   | Describe                  | Type             
+:------------------------ | :------------------------ | :------------------------ |
+app\:pathColor | color of the path | resource of color
+app\:pathWidth | width of the path | float
+app\:headImageId | image of the head | resource of image
+app\:headImageWidth| width of the head | float
+app\:headImageHeight| height of the head | float 
+
+##### Create a path:  
+To create a path, you must know something about [Path](http://developer.android.com/intl/zh-cn/reference/android/graphics/Path.html).  
+I suggest you use the [cubicTo](http://developer.android.com/intl/zh-cn/reference/android/graphics/Path.html#cubicTo(float, float, float, float, float, float)) function to draw a curve and [lineTo](http://developer.android.com/intl/zh-cn/reference/android/graphics/Path.html#lineTo(float, float)) function to draw a line.  
+You can use these websites to get the 6 parameters of the cubicTo function:  
+[Canvature](https://canvature.appspot.com/)  
+[BezierTool](http://www.victoriakirst.com/beziertool/)  
+As the above gif shows, there are only 3 curves to combine this path:
+```java
+WoWoPathView pathView = (WoWoPathView)findViewById(R.id.pathview);
+ViewGroup.LayoutParams layoutParams = pathView.getLayoutParams();
+layoutParams.height = screenH;
+// set the pathView a little wider,
+// then the airplane can hide
+layoutParams.width = screenW + 200;
+pathView.setLayoutParams(layoutParams);
+
+// use this to adjust the path
+int xoff = -300;
+int yoff = screenH - 616 - 300;
+float xScale = 1.5f;
+float yScale = 1;
+
+Path path = new Path();
+path.moveTo(xScale * (565 + xoff), screenH + yoff);
+path.cubicTo(
+        xScale * (509 + xoff), yScale * (385 + yoff),
+        xScale * (144 + xoff), yScale * (272 + yoff),
+        xScale * (394 + xoff), yScale * (144 + yoff));
+path.cubicTo(
+        xScale * (477 + xoff), yScale * (99 + yoff),
+        xScale * (596 + xoff), yScale * (91 + yoff),
+        xScale * (697 + xoff), yScale * (128 + yoff));
+path.cubicTo(
+        xScale * (850 + xoff), yScale * (189 + yoff),
+        xScale * (803 + xoff), yScale * (324 + yoff),
+        xScale * (66 + xoff), yScale * (307 + yoff));
+
+// set the path to pathView
+pathView.setPath(path);
+ViewAnimation animation = new ViewAnimation(pathView);
+animation.addPageAnimaition(new WoWoPathAnimation(
+        0, 0f, 1f,
+        easeType,
+        useSameEaseTypeBack));
+wowo.addAnimation(animation);
+```
 
 # Ease
+To make the animations more lifesome, you can choose different ease type to play the animations.  
+![Ease](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/ease.png)  
+Of course you can use linear function. 
+You can find all the ease enums [here](https://github.com/Nightonke/WoWoViewPager/blob/master/wowoviewpager/src/main/java/com/nightonke/wowoviewpager/Eases/EaseType.java).
 
 # RGB or HSV
 All the color changing animation has 2 types, RGB and HSV(Hue [0 .. 360), Saturation [0...1] and Value [0...1] If hsv values are out of range, they are pinned). 
@@ -590,9 +686,13 @@ But usually the RGB changing type is the good one.
 Because HSV sometimes looks strange(my opinion). 
 You can see the performance of these 2 types in the gif of [Background Color Animation](https://github.com/Nightonke/WoWoViewPager#background-color-animation).  
 
-# Version
+# Versions
 ### 1.0.1  
 First version for 11 animations.
+
+# Todo
+1. Try to add more animations.
+2. Auto-Create path.  
 
 # License
 
