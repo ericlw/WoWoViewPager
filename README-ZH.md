@@ -10,7 +10,7 @@ WoWo将动画和viewpager结合起来。
 
 # 目录
 
-[English README](https://github.com/Nightonke/WoWoViewPager/blob/master/README.md)  
+[English README](https://github.com/Nightonke/WoWoViewPager)  
 [Gradle](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#gradle)  
 [备注](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#备注)  
 [Demo](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#demo)  
