@@ -23,7 +23,7 @@ WoWo将动画和viewpager结合起来。
 1. [位移动画](https://github.com/Nightonke/WoWoViewPager#translation-animation)
 2. [缩放动画](https://github.com/Nightonke/WoWoViewPager#scale-animation)
 3. [渐现、渐逝动画](https://github.com/Nightonke/WoWoViewPager#alpha-animation)
-4. [旋转动画](https://github.com/Nightonke/WoWoViewPager#旋转动画)
+4. [旋转动画](https://github.com/Nightonke/WoWoViewPager/README-ZH.md#旋转动画)
 
 #### 文字大小动画
 1. [TextView文字大小动画](https://github.com/Nightonke/WoWoViewPager#textview-size-animation)
