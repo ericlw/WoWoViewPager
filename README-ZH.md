@@ -2,7 +2,7 @@
 ![WoWoViewPager App Intros Example](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/AppIntroExample.gif) 
 ![WoWoViewPager CV Example](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/CVExample.gif)
 
-WoWo可以优化你的App介绍/引导页面，制作你的App简历。
+WoWo可以优化你的App介绍/引导页面，制作你的App简历。  
 WoWo将动画和viewpager结合起来。  
 当你滑动viewpager的时候，你也在控制动画的当前帧。  
 就好像控制动画时间一般。  
@@ -13,7 +13,7 @@ WoWo将动画和viewpager结合起来。
 [English README](https://github.com/Nightonke/WoWoViewPager/blob/master/README.md)  
 [Gradle](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#gradle)  
 [备注](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#备注)  
-[Demo](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#Demo)  
+[Demo](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#demo)  
 [版本](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#版本)  
 [Todo](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#todo)  
 [License](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#license)  
@@ -26,7 +26,7 @@ WoWo将动画和viewpager结合起来。
 4. [旋转动画](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#旋转动画)
 
 #### 文字大小动画
-1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#textView-Size-Animation)
+1. [TextView Size Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#textView-size-animation)
 
 #### 变色动画
 1. [Background Color Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#background-color-animation)
@@ -125,7 +125,7 @@ animation.addPageAnimaition(new WoWoTranslationAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 如你所见，上述代码实现了gif中一部分的效果，也就是从viewpager的第一页滑动到第三页的效果，共涉及两个位移动画。   
-更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTranslationAnimationActivity.java).  
+更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTranslationAnimationActivity.java)。    
 
 #### 缩放动画
 缩放动画实现view的缩小或放大。  
@@ -168,7 +168,7 @@ wowoViewPager.addAnimation(animation);
 你可以将多种动画结合起来来实现复制的动画。比如，你可以用两个位移动画来创造一个折线动画。
 正如上述代码，从viewpager第3页（注意这里从0数起）的0偏移量到0.5偏移量（也就是滑动的前一半路程），view的宽度翻倍。
 然后，在0.5偏移量到1偏移量，也就是滑动的后一半路程，view的高度翻倍。  
-更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoScaleAnimationActivity.java).  
+更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoScaleAnimationActivity.java)。  
 
 #### 渐现、渐逝动画
 渐现、渐逝动画改变view的可见度，用来产生渐现、渐逝效果。  
@@ -209,7 +209,7 @@ animation.addPageAnimaition(new WoWoAlphaAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 相信不用做太多解释。  
-更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoAlphaAnimationActivity.java).  
+更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoAlphaAnimationActivity.java)。  
 
 #### 旋转动画
 旋转动画，顾名思义。
@@ -259,7 +259,7 @@ animation.addPageAnimaition(new WoWoRotationAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 上述的代码将导致view上下颠倒，注意在gif中，两个textview的轴心是不一样的。  
-更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoRotationAnimationActivity.java).  
+更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoRotationAnimationActivity.java)。  
 
 ### 文字大小动画
 #### TextView Size Animation  
@@ -299,7 +299,7 @@ animation.addPageAnimaition(new WoWoTextViewSizeAnimation(
         useSameEaseTypeBack));
 wowoViewPager.addAnimation(animation);
 ```
-更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java).  
+更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewTextSizeAnimationActivity.java)。  
 
 ### 变色动画
 
@@ -340,7 +340,7 @@ animation.addPageAnimaition(new WoWoBackgroundColorAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 注意背景变色动画只能改变有setBackgroundColor()函数的view。   
-更多示例，请查看[代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoBackgroundColorAnimationActivity.java).  
+更多示例，请查看[代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoBackgroundColorAnimationActivity.java)。  
 [什么是colorChangeType？](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)  
 
 #### TextView Color Animation
@@ -379,7 +379,7 @@ animation.addPageAnimaition(new WoWoTextViewColorAnimation(
 wowoViewPager.addAnimation(animation);
 ```
 注意该动画只能用于textview。  
-更多示例，请查看[代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewColorAnimationActivity.java).  
+更多示例，请查看[代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoTextViewColorAnimationActivity.java)。  
 [什么是colorChangeType？](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)  
 
 #### Shape Color Animation
@@ -426,7 +426,7 @@ wowoViewPager.addAnimation(animation);
     <solid android:color="@color/red"/>
 </shape>
 ```
-更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
+更多示例，请查看 [代码](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java)。  
 [什么是colorChangeType？](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)  
 
 #### State-List Color Animation
@@ -689,7 +689,7 @@ HSV是改变亮度等来实现变色，在自然界中看起来更加正常。
 
 # 版本
 ### 1.0.1  
-第一个版本，11中动画。  
+第一个版本，11种动画。  
 
 # Todo
 1. 增加更多动画。  
