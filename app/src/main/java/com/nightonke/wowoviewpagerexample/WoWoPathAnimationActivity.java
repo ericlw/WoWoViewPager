@@ -69,9 +69,12 @@ public class WoWoPathAnimationActivity extends AppCompatActivity {
         WoWoPathView pathView = (WoWoPathView)findViewById(R.id.pathview);
         ViewGroup.LayoutParams layoutParams = pathView.getLayoutParams();
         layoutParams.height = screenH;
+        // set the pathView a little wider,
+        // then the airplane can hide
         layoutParams.width = screenW + 200;
         pathView.setLayoutParams(layoutParams);
 
+        // use this to adjust the path
         int xoff = -300;
         int yoff = screenH - 616 - 300;
         float xScale = 1.5f;
@@ -92,6 +95,7 @@ public class WoWoPathAnimationActivity extends AppCompatActivity {
                 xScale * (803 + xoff), yScale * (324 + yoff),
                 xScale * (66 + xoff), yScale * (307 + yoff));
 
+        // set the path to pathView
         pathView.setPath(path);
         ViewAnimation animation = new ViewAnimation(pathView);
         animation.addPageAnimaition(new WoWoPathAnimation(
