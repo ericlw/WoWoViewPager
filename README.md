@@ -9,6 +9,7 @@ Just like rewinding time.
 
 # Guide
 
+[中文文档](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md)
 [Gradle](https://github.com/Nightonke/WoWoViewPager#gradle)  
 [Note](https://github.com/Nightonke/WoWoViewPager#note)  
 [Demo](https://github.com/Nightonke/WoWoViewPager#demo)  
@@ -41,6 +42,14 @@ Just like rewinding time.
 2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)
 
 # Gradle
+Just add the "compile 'com.nightonke:wowoviewpager:1.0.1'" in your build.gradle of your module.  
+```
+dependencies {
+    ...
+    compile 'com.nightonke:wowoviewpager:1.0.1'
+    ...
+}
+```
 
 # Note
 1. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration.
@@ -682,7 +691,8 @@ You can see the performance of these 2 types in the gif of [Background Color Ani
 First version for 11 animations.
 
 # Todo
-
+1. Try to add more animations.
+2. Auto-Create path.  
 
 # License
 
