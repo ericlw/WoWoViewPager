@@ -52,8 +52,9 @@ dependencies {
 ```
 
 # Note
-1. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration.
-2. I'll add more animations for WoWoViewPager.
+1. Thanks [SCViewPager](https://github.com/sacot41/SCViewPager) for giving me inspiration for codes.
+2. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration for animations.
+3. I'll add more animations for WoWoViewPager.
 
 # Demo
 There is a demo for the current animations that WoWoViewPager supports. 
