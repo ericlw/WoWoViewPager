@@ -53,8 +53,9 @@ dependencies {
 ```
 
 # 备注
-1. 感谢 [JazzHands](https://github.com/IFTTT/JazzHands) 带给我的灵感。  
-2. 更多的动画将会陆续加入。  
+1. 感谢 [SCViewPager](https://github.com/sacot41/SCViewPager) 带给我代码上的灵感。
+2. 感谢 [JazzHands](https://github.com/IFTTT/JazzHands) 带给我动画上的灵感。  
+3. 更多的动画将会陆续加入。  
 
 # Demo
 你可以通过这个demo来查看所有WoWo支持的动画，并以不同的缓动效果和变色效果来查看动画效果。  
