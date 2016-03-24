@@ -52,8 +52,9 @@ dependencies {
 ```
 
 # Note
-1. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration.
-2. I'll add more animations for WoWoViewPager.
+1. Thanks [SCViewPager](https://github.com/sacot41/SCViewPager) for giving me inspiration for codes.
+2. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration for animations.
+3. I'll add more animations for WoWoViewPager.
 
 # Demo
 There is a demo for the current animations that WoWoViewPager supports. 
@@ -424,7 +425,7 @@ Like this:
     <solid android:color="@color/red"/>
 </shape>
 ```
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
 [What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
 
 #### State-List Color Animation
@@ -487,7 +488,7 @@ And the corresponding drawable is:
 </selector>
 ```
 Notice that state-list-drawable color animation can only do its job when the background of view is state-list-drawable. 
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoStateListColorAnimationActivity.java).  
 [What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
 
 #### Layer-List Color Animation
@@ -592,7 +593,7 @@ And the corresponding drawable is:
 </layer-list>
 ```
 Notice that layer-list-drawable color animation can only do its job when the background of view is layer-list-drawable. 
-For more codes about scale animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoLayerListColorAnimationActivity.java).  
+For more codes about the animation, please check the [code](https://github.com/Nightonke/WoWoViewPager/blob/master/app/src/main/java/com/nightonke/wowoviewpagerexample/WoWoLayerListColorAnimationActivity.java).  
 [What is colorChangeType?](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)  
 
 ### Path Animation
