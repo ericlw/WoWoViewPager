@@ -43,11 +43,11 @@ WoWo将动画和viewpager结合起来。
 2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager/blob/master/README-ZH.md#rgb-or-hsv)
 
 # Gradle
-直接在你的module的build.gradle的dependencies中加入“compile 'com.nightonke:wowoviewpager:1.0.1'”这行即可。  
+直接在你的module的build.gradle的dependencies中加入“compile 'com.nightonke:wowoviewpager:1.0.2'”这行即可。  
 ```
 dependencies {
     ...
-    compile 'com.nightonke:wowoviewpager:1.0.1'
+    compile 'com.nightonke:wowoviewpager:1.0.2'
     ...
 }
 ```
@@ -55,15 +55,16 @@ dependencies {
 # 备注
 1. 感谢 [SCViewPager](https://github.com/sacot41/SCViewPager) 带给我代码上的灵感。
 2. 感谢 [JazzHands](https://github.com/IFTTT/JazzHands) 带给我动画上的灵感。  
-3. 更多的动画将会陆续加入。  
+3. 感谢 [konmik](https://github.com/konmik) 提供了一个更好的HSV动画变换。
+4. 更多的动画将会陆续加入。  
 
 # Demo
 你可以通过这个demo来查看所有WoWo支持的动画，并以不同的缓动效果和变色效果来查看动画效果。  
 你也可以在demo中找到App引导页例子和App简历例子。  
-![WoWo V1.0.1](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.png)  
+![WoWo V1.0.2](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.2.png)  
 或者下载链接：  
-[WoWo V1.0.1 in Github](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.apk?raw=true)  
-[WoWo V1.0.1 in Fir](http://fir.im/wowoviewpager)  
+[WoWo V1.0.2 in Github](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.2.apk?raw=true)  
+[WoWo V1.0.2 in Fir](http://fir.im/wowoviewpager)  
 ![Demo Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_animation.png) 
 ![Demo Ease Type](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_ease_type.png)  
 
@@ -691,6 +692,8 @@ HSV是改变亮度等来实现变色，在自然界中看起来更加正常。
 # 版本
 ### 1.0.1  
 第一个版本，11种动画。  
+### 1.0.2
+一个更好的HSV动画变换。
 
 # Todo
 1. 增加更多动画。  
