@@ -3,9 +3,9 @@ package com.nightonke.wowoviewpager;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
-import android.util.Log;
 import android.view.View;
 
+import com.nightonke.wowoviewpager.Color.ColorChangeHelper;
 import com.nightonke.wowoviewpager.Color.ColorChangeType;
 import com.nightonke.wowoviewpager.Eases.EaseType;
 
@@ -31,12 +31,13 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
     private int[] targetR;
     private int[] targetG;
     private int[] targetB;
-    private float[][] targetHSV;
     private int[] fromA;
     private int[] fromR;
     private int[] fromG;
     private int[] fromB;
-    private float[][] fromHSV;
+
+    private float[][] fromHsvVector = null;
+    private float[][] targetHsvVector = null;
 
     /**
      *
@@ -151,12 +152,8 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         } else {
             for (int i = 0; i < length; i++) {
                 ((GradientDrawable)layerDrawable.getDrawable(i)).setColor(
-                        Color.HSVToColor
-                            (new float[]{
-                                 fromHSV[i][0] + (targetHSV[i][0] - fromHSV[i][0]) * movementOffset,
-                                 fromHSV[i][1] + (targetHSV[i][1] - fromHSV[i][1]) * movementOffset,
-                                 fromHSV[i][2] + (targetHSV[i][2] - fromHSV[i][2]) * movementOffset}
-                            )
+                        ColorChangeHelper.getInstance().getHSVColor(
+                                fromHsvVector[i], targetHsvVector[i], movementOffset)
                 );
             }
         }
@@ -168,24 +165,26 @@ public class WoWoLayerListColorAnimation extends PageAnimation {
         targetR = new int[length];
         targetG = new int[length];
         targetB = new int[length];
-        targetHSV = new float[length][3];
         fromA = new int[length];
         fromR = new int[length];
         fromG = new int[length];
         fromB = new int[length];
-        fromHSV = new float[length][3];
+        fromHsvVector = new float[length][3];
+        targetHsvVector = new float[length][3];
+
         for (int i = 0; i < length; i++) {
             targetA[i] = Color.alpha(targetColor[i]);
             targetR[i] = Color.red(targetColor[i]);
             targetG[i] = Color.green(targetColor[i]);
             targetB[i] = Color.blue(targetColor[i]);
-            Color.colorToHSV(targetColor[i], targetHSV[i]);
 
             fromA[i] = Color.alpha(fromColor[i]);
             fromR[i] = Color.red(fromColor[i]);
             fromG[i] = Color.green(fromColor[i]);
             fromB[i] = Color.blue(fromColor[i]);
-            Color.colorToHSV(fromColor[i], fromHSV[i]);
+
+            fromHsvVector[i] = ColorChangeHelper.getInstance().toHsvVector(fromColor[i]);
+            targetHsvVector[i] = ColorChangeHelper.getInstance().toHsvVector(targetColor[i]);
         }
     }
 }

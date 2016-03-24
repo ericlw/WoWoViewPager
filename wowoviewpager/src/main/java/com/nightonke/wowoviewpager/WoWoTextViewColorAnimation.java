@@ -5,6 +5,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import android.widget.TextView;
 
+import com.nightonke.wowoviewpager.Color.ColorChangeHelper;
 import com.nightonke.wowoviewpager.Color.ColorChangeType;
 import com.nightonke.wowoviewpager.Eases.EaseType;
 
@@ -29,12 +30,13 @@ public class WoWoTextViewColorAnimation extends PageAnimation {
     private int targetR = -1;
     private int targetG = -1;
     private int targetB = -1;
-    private float[] targetHSV = new float[3];
     private int fromA = -1;
     private int fromR = -1;
     private int fromG = -1;
     private int fromB = -1;
-    private float[] fromHSV = new float[3];
+
+    private float[] fromHsvVector = null;
+    private float[] targetHsvVector = null;
 
     /**
      *
@@ -142,11 +144,9 @@ public class WoWoTextViewColorAnimation extends PageAnimation {
             }
         } else {
             if (onView instanceof TextView) {
-                ((TextView) onView).setTextColor(Color.HSVToColor(new float[]{
-                        fromHSV[0] + (targetHSV[0] - fromHSV[0]) * movementOffset,
-                        fromHSV[1] + (targetHSV[1] - fromHSV[1]) * movementOffset,
-                        fromHSV[2] + (targetHSV[2] - fromHSV[2]) * movementOffset
-                }));
+                ((TextView) onView).setTextColor(
+                        ColorChangeHelper.getInstance().getHSVColor(
+                                fromHsvVector, targetHsvVector, movementOffset));
             }
         }
     }
@@ -156,12 +156,13 @@ public class WoWoTextViewColorAnimation extends PageAnimation {
         targetR = Color.red(targetColor);
         targetG = Color.green(targetColor);
         targetB = Color.blue(targetColor);
-        Color.colorToHSV(targetColor, targetHSV);
-        
+
         fromA = Color.alpha(fromColor);
         fromR = Color.red(fromColor);
         fromG = Color.green(fromColor);
         fromB = Color.blue(fromColor);
-        Color.colorToHSV(fromColor, fromHSV);
+
+        fromHsvVector = ColorChangeHelper.getInstance().toHsvVector(fromColor);
+        targetHsvVector = ColorChangeHelper.getInstance().toHsvVector(targetColor);
     }
 }
