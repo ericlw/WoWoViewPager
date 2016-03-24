@@ -42,11 +42,11 @@ Just like rewinding time.
 2. [RGB or HSV](https://github.com/Nightonke/WoWoViewPager#rgb-or-hsv)
 
 # Gradle
-Just add the "compile 'com.nightonke:wowoviewpager:1.0.1'" in your build.gradle of your module.  
+Just add the "compile 'com.nightonke:wowoviewpager:1.0.2'" in your build.gradle of your module.  
 ```
 dependencies {
     ...
-    compile 'com.nightonke:wowoviewpager:1.0.1'
+    compile 'com.nightonke:wowoviewpager:1.0.2'
     ...
 }
 ```
@@ -54,15 +54,16 @@ dependencies {
 # Note
 1. Thanks [SCViewPager](https://github.com/sacot41/SCViewPager) for giving me inspiration for codes.
 2. Thanks [JazzHands](https://github.com/IFTTT/JazzHands) for giving me inspiration for animations.
-3. I'll add more animations for WoWoViewPager.
+3. Thanks [konmik](https://github.com/konmik) for providing a better HSV-animation for version 1.0.2.
+4. I'll add more animations for WoWoViewPager.
 
 # Demo
 There is a demo for the current animations that WoWoViewPager supports. 
 And there are App intros example and CV example(the above gifs) in the demo.  
-![WoWo V1.0.1](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.png)  
+![WoWo V1.0.2](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.2.png)  
 Or by link:  
-[WoWo V1.0.1 in Github](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.1.apk?raw=true)  
-[WoWo V1.0.1 in Fir](http://fir.im/wowoviewpager)  
+[WoWo V1.0.2 in Github](https://github.com/Nightonke/WoWoViewPager/blob/master/Apk/WoWo%20V1.0.2.apk?raw=true)  
+[WoWo V1.0.2 in Fir](http://fir.im/wowoviewpager)  
 ![Demo Animation](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_animation.png) 
 ![Demo Ease Type](https://github.com/Nightonke/WoWoViewPager/blob/master/Pictures/demo_ease_type.png)  
 You can try every animation and ease type that WoWoViewPager supports.   
@@ -690,6 +691,8 @@ You can see the performance of these 2 types in the gif of [Background Color Ani
 # Versions
 ### 1.0.1  
 First version for 11 animations.
+### 1.0.2  
+A better HSV-animation.
 
 # Todo
 1. Try to add more animations.
